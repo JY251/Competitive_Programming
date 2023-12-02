@@ -13,6 +13,8 @@ int main() {
 
 	int result = min({minCostS, minCostM, minCostL});
 
+	cout << minCostS << " " << minCostM << " " << minCostL << endl;
+
 	cout << result << endl;
 	
 
