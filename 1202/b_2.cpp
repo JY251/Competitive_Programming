@@ -11,9 +11,9 @@ int main() {
 	double costPerEggM = static_cast<double>(M) / 8;
 	double costPerEggL = static_cast<double>(L) / 12;
 
-	double minCostPerEgg  min({costPerEggS, costPerEggM, costPerEggL});
+	double minCostPerEgg = min({costPerEggS, costPerEggM, costPerEggL});
 
-	
+
 
 
 
