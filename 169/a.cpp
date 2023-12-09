@@ -20,20 +20,14 @@ int main() {
 	for (int i=0; i<N-1; i++) {
 		cin >> P[i];
 	}
-	// P[i] (1-idx) => P[i-1] in code
-
-	// debug
-	// cout << "A ";
-	// for (int i=0; i<N; i++) {
-	// 	cout << A[i] << " ";
-	// }
-	// cout << endl;
-	for (int j=0; j<1e100; )
+	// P[i] (1-idx) => P[i-2] in code
 
 	for (int i=0; i<N-1; i++) {
-		A[P[i]-1] = A[P[i]-1] + A[i+1];
-		// cout << "loop " << i << ": " << "P_i: " << P[i] << " A[P_i]: " << A[P[i] - 1] << endl;
-		// cout << A[P[i]-1] << endl;
+		// P[i] (1-idx) => P[i-2] in code
+		// A[i] (1-idx) => A[i-1] in code
+		// A[P]
+		A[P[i]-1] = A[P[i]-1] + A[i];
+		cout << "A[P[i+2]] = "
 	}
 
 	const char* result;
