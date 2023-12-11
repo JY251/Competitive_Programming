@@ -24,7 +24,8 @@ int f(const vector<int>& subsequence, int S) {
 }
 
 int main() {
-	int N, S;
+	int N
+	long long S;
 	cin >> N >> S;
 
 	vector<int> A(N);
