@@ -39,22 +39,22 @@ unsigned long long largestTriangular(unsigned long long N, unsigned long long tr
 	unsigned long long i = triangular_last_i;
 	unsigned long long j = 0;
 
-	cout << "triangular_last_i: " << triangular_last_i << endl;
-	cout << "N: " << N << endl;
+	// cout << "triangular_last_i: " << triangular_last_i << endl;
+	// cout << "N: " << N << endl;
 
 	while ((sum=sum+i) < N) {
 		i--;
 		j++;
 	}
 
-	cout << "j: " << j+1 << " Repunit: " << NthRepunit(j+1) << endl;
-	cout << "remain: " << N - (sum-(i+1)) << " Repunit: " << NthRepunit(N - (sum-(i+1)) - 1) << endl;
-	cout << "Nth-repute: " << NthRepunit(triangular_last_i) << endl;
+	// cout << "j: " << j+1 << " Repunit: " << NthRepunit(j+1) << endl;
+	// cout << "remain: " << N - (sum-(i+1)) << " Repunit: " << NthRepunit(N - (sum-(i+1)) - 1) << endl;
+	// cout << "Nth-repute: " << NthRepunit(triangular_last_i) << endl;
 	// cout << "Nth-repute: " << NthRepunit(triangular_last_i) << endl;
 
 	unsigned long long ans = NthRepunit(triangular_last_i) + NthRepunit(j+1) + NthRepunit(N - (sum-(i+1)) - 1);
 	
-	cout << "ans: " << ans << endl;
+	// cout << "ans: " << ans << endl;
 
 	// return i;
 	return ans;
@@ -79,9 +79,9 @@ unsigned long long largestSumOfTriangulerNumber(unsigned long long N) {
 	if (old_sum == N) {
 		return 3*NthRepunit(i-2);
 	} else {
-		cout << "remain: " << N - old_sum << endl;
-		cout << "next sum of tri.: " << Triangular(i-1) << "/" << i-1 << "th" << endl;
-		cout << pow(10, i-1) << endl;
+		// cout << "remain: " << N - old_sum << endl;
+		// cout << "next sum of tri.: " << Triangular(i-1) << "/" << i-1 << "th" << endl;
+		// cout << pow(10, i-1) << endl;
 		// cout << "ans2 " << largestTriangular(N - old_sum, i-1) << endl;
 		// return 3*NthRepunit(i-2) + pow(10, i-2) * (N - old_sum);
 		return largestTriangular(N - old_sum, i-1);
