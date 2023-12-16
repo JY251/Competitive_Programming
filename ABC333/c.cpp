@@ -39,18 +39,33 @@ unsigned long long largestTriangular(unsigned long long N, unsigned long long tr
 	unsigned long long i = triangular_last_i;
 	unsigned long long j = 0;
 
-	// cout << "triangular_last_i: " << triangular_last_i << endl;
-	// cout << "N: " << N << endl;
+	cout << "triangular_last_i: " << triangular_last_i << endl;
+	cout << "N: " << N << endl;
 
 	while ((sum=sum+i) < N) {
 		i--;
 		j++;
 	}
 
-	// cout << "j: " << j+1 << " Repunit: " << NthRepunit(j+1) << endl;
+	// このアルゴリズムでは、
+	// 3つの数のうち、
+	// 1つは、triangular_last_i番目の三角数
+	// 1つは、j+1番目のレピュニット数
+	// 1つは、N - (sum-(i+1)) - 1番目のレピュニット数としているが、
+	// 入力が5	-> N:1 , 111, 1, 1
+	// 入力が6 -> N:2 , 111, 1, 11
+	// 入力が7 -> N:3 , 111, 1, 111
+	// 入力が8 -> N:3 , 111, 11, 1
+	// 入力が9 -> N:3 , 111, 11, 11
+	// 入力が10 -> N:4 , 111, 111, 111
+	// となるが、7, 8, 9の大小が逆転している!
+
+
+	cout << "j: " << j+1 << " Repunit: " << NthRepunit(j+1) << endl;
+	cout  << "i: " << i+1 << " sum: " << sum - (i+1) << endl;
 	// cout << "remain: " << N - (sum-(i+1)) << " Repunit: " << NthRepunit(N - (sum-(i+1)) - 1) << endl;
-	// cout << "Nth-repute: " << NthRepunit(triangular_last_i) << endl;
-	// cout << "Nth-repute: " << NthRepunit(triangular_last_i) << endl;
+	cout << "remain: " << N - (sum-(i+1)) << "(" << N - (sum-(i+1)) - 1 << ")" << " Repunit: " << NthRepunit(N - (sum-(i+1)) - 1) << endl;
+	cout << "Nth-repute: " << NthRepunit(triangular_last_i) << endl;
 
 	unsigned long long ans = NthRepunit(triangular_last_i) + NthRepunit(j+1) + NthRepunit(N - (sum-(i+1)) - 1);
 	
