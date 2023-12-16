@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -51,6 +52,10 @@ unsigned long long largestSumOfTriangulerNumber(unsigned long long N) {
 
 	if (old_sum == N) {
 		return 3*NthRepunit(i-2);
+	} else {
+		cout << "remain: " << N - old_sum << endl;
+		cout << pow(10, i-1) << endl;
+		return 3*NthRepunit(i-2) + pow(10, i-2) * (N - old_sum);
 	}
 	return old_sum;
 	// return i;
