@@ -34,6 +34,18 @@ unsigned long long NthRepunit(unsigned long long n) {
 	return sum;
 }
 
+unsigned long long largetsTriangular(unsigned long long N, unsigned long long triangular_last_i) {
+	unsigned long long sum = 0;
+	unsigned long long i = triangular_last_i;
+
+	while ((sum=sum+i) <= N) {
+		i--;
+	}
+
+	// return i;
+	return sum;
+}
+
 
 unsigned long long largestSumOfTriangulerNumber(unsigned long long N) {
 	// (n^2 + n) / 2 = N
@@ -53,13 +65,15 @@ unsigned long long largestSumOfTriangulerNumber(unsigned long long N) {
 	if (old_sum == N) {
 		return 3*NthRepunit(i-2);
 	} else {
-		cout << "remain: " << N - old_sum << endl;
-		cout << pow(10, i-1) << endl;
+		// cout << "remain: " << N - old_sum << endl;
+		// cout << "next sum of tri.: " << Triangular(i-1) << "/" << i-1 << "th" << endl;
+		// cout << pow(10, i-1) << endl;
 		return 3*NthRepunit(i-2) + pow(10, i-2) * (N - old_sum);
 	}
 	return old_sum;
 	// return i;
 }
+
 
 
 int main() {
