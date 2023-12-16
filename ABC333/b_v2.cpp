@@ -34,9 +34,10 @@ pair<double, double> getCoordinates(Vertex v) {
 	switch(v) {
 		case A: return {0, 0};
 		case B: return {1, 0};
-		case C: return {1+cos(M_PI/3), sin(M_PI/3)};
-		case D: return {0.5, sin(M_PI/3)+sin(M_PI/6)};
-		case E: return {-cos(M_PI/3), sin(M_PI/3)};
+		case C: return {1+cos(2*M_PI/5), sin(2*M_PI/5)};
+		// case D: return {cos(4*M_PI/5), sin(4*M_PI/5)};
+		case D: return {1+cos(2*M_PI/5)-cos(M_PI/5), sin(2*M_PI/5)+sin(M_PI/5)};
+		case E: return {-cos(2*M_PI/5), sin(2*M_PI/5)};
 		default: return {0, 0};
 	}
 }
@@ -46,12 +47,12 @@ bool areSegmentsEqual(Vertex s1, Vertex s2, Vertex t1, Vertex t2) {
 	double lengthS = distance(getCoordinates(s1), getCoordinates(s2));
 	double lengthT = distance(getCoordinates(t1), getCoordinates(t2));
 
-	cout << getCoordinates(s1).first << " " << getCoordinates(s1).second << endl;
-	cout << getCoordinates(s2).first << " " << getCoordinates(s2).second << endl;
-	cout << getCoordinates(t1).first << " " << getCoordinates(t1).second << endl;
-	cout << getCoordinates(t2).first << " " << getCoordinates(t2).second << endl;
+	// cout << getCoordinates(s1).first << " " << getCoordinates(s1).second << endl;
+	// cout << getCoordinates(s2).first << " " << getCoordinates(s2).second << endl;
+	// cout << getCoordinates(t1).first << " " << getCoordinates(t1).second << endl;
+	// cout << getCoordinates(t2).first << " " << getCoordinates(t2).second << endl;
 
-	cout << lengthS << " " << lengthT << endl;
+	// cout << lengthS << " " << lengthT << endl;
 
 	return fabs(lengthS - lengthT) < 1e-100;
 }
