@@ -5,19 +5,27 @@ using namespace std;
 
 int main() {
 	long A;
-	int M;
+	long M;
 	long L, R;
 
 	cin >> A >> M >> L >> R;
 
-	int negative_tree = (A - L) / M;
-	int positive_tree = (R - A) / M;
+	if (L == R) {
+		cout << 0 << endl;
+		return 0;
+	}
+
+	cout << A-L << " " << R-A << endl;
+	cout << log10(abs(A-L)) << " " << log10(abs(R-A)) << endl;
+	long negative_tree = (A - L) / M;
+
+	long positive_tree = (R - A) / M;
 
 	cout << negative_tree << " ";
 	cout << positive_tree;
 	cout << endl;
 
-	int trees = negative_tree + positive_tree + 1;
+	long trees = negative_tree + positive_tree + 1;
 
 	cout << trees << endl;
 	return 0;
