@@ -5,12 +5,12 @@ using namespace std;
 
 int main() {
 	long A;
-	int M;
+	long M;
 	long L, R;
 
 	cin >> A >> M >> L >> R;
 
-	int trees = 0;
+	long trees = 0;
 	for (int k = L; k <= R; k+=M) {
 		if (A + k >= L && A + k <= R) {
 			trees++;
