@@ -20,7 +20,12 @@ int main() {
 	// 200_0000_0000_0000_0001
 
 	if (L == R) {
-		cout << 0 << endl;
+		if ((A - L)%M == 0) {
+			cout << 1 << endl;
+		} else {
+			cout << 0 << endl;
+		}
+		// cout << 0 << endl;
 		return 0;
 	}
 
@@ -38,9 +43,9 @@ int main() {
 	long long trees;
 	if (A < L) {
 		trees = negative_tree + positive_tree;
-			if ((A - L) % M == 0) {
-				trees++;
-			}
+		if ((A - L) % M == 0) {
+			trees++;
+		}
 	} else if (A > R) {
 		trees = negative_tree + positive_tree;
 		if ((R - A) % M == 0) {
