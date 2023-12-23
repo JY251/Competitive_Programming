@@ -8,7 +8,14 @@ int main() {
 	long long M;
 	long long L, R;
 
-	cin >> A >> M >> L >> R;
+	// cin >> A >> M >> L >> R;
+
+	A = 0;
+	M = 10;
+	L = -1e18;
+	R = 1e18;
+
+	// 20_0000_0000_0000_0001
 
 	if (L == R) {
 		cout << 0 << endl;
@@ -27,8 +34,16 @@ int main() {
 	// cout << endl;
 
 	long long trees;
-	if (A < L || A > R) {
+	if (A < L) {
 		trees = negative_tree + positive_tree;
+			if ((A - L) % M == 0) {
+				trees++;
+			}
+	} else if (A > R) {
+		trees = negative_tree + positive_tree;
+		if ((R - A) % M == 0) {
+			trees++;
+		}
 	} else {
 		trees = negative_tree + positive_tree + 1;
 	}
