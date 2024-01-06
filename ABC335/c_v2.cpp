@@ -16,10 +16,10 @@ int main() {
 		dragon[i] = make_pair(i, 0);
 	}
 
-	for (int i = 1; i <= N; ++i) {
-		cout << "(" << dragon[i].first << " " << dragon[i].second << ")";
-	}
-	cout << endl;
+	// for (int i = 1; i <= N; ++i) {
+	// 	cout << "(" << dragon[i].first << " " << dragon[i].second << ")";
+	// }
+	// cout << endl;
 	int tmp_x, tmp_y;
 
 	while (Q--) {
@@ -54,10 +54,10 @@ int main() {
 				dragon[i].second = tmp_y[idx2];
 			}
 
-			for (int i = 1; i <= N; ++i) {
-				cout << "(" << dragon[i].first << " " << dragon[i].second << ")";
-			}
-			cout << endl;
+			// for (int i = 1; i <= N; ++i) {
+			// 	cout << "(" << dragon[i].first << " " << dragon[i].second << ")";
+			// }
+			// cout << endl;
 		} else if (type == 2) {
 			int p;
 			cin >> p;
