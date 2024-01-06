@@ -16,6 +16,12 @@ int main() {
 		dragon[i] = make_pair(i, 0);
 	}
 
+	for (int i = 1; i <= N; ++i) {
+		cout << "(" << dragon[i].first << " " << dragon[i].second << ")";
+	}
+	cout << endl;
+	int tmp_x, tmp_y;
+
 	while (Q--) {
 		int type;
 		cin >> type;
@@ -23,6 +29,9 @@ int main() {
 		if (type == 1) {
 			char direction;
 			cin >> direction;
+
+			tmp_x = dragon[1].first;
+			tmp_y = dragon[1].second;
 
 			if (direction == 'R') {
 				dragon[1].first++;
@@ -35,9 +44,24 @@ int main() {
 			}
 
 			for (int i = 2; i <= N; ++i) {
-				dragon[i].first = dragon[i-1].first;
-				dragon[i].second = dragon[i-1].second;
+				if (i == 2) {
+					dragon[i].first = tmp_x;
+					dragon[i].second = tmp_y;
+					continue;
+				}
+				// if (i == 2) {
+				// 	// dragon[i].first = dragon[i-1].first;
+				// 	// dragon[i].second = dragon[i-1].second;
+				// } else {
+				dragon[i].first = tmp_x;
+				dragon[i].second = tmp_y;
+				// }
 			}
+
+			for (int i = 1; i <= N; ++i) {
+				cout << "(" << dragon[i].first << " " << dragon[i].second << ")";
+			}
+			cout << endl;
 		} else if (type == 2) {
 			int p;
 			cin >> p;
