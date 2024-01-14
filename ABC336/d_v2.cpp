@@ -16,6 +16,12 @@ int main() {
 	if (N % 2 == 0) {
 		ans = N-1;
 	} else {
+		for (int i=0; i<=(N+1)/2; i++) {
+			if (A[i] > i+1 && A[N-i-1] > i+1) {
+				ans = N;
+				break;
+			}
+		}
 		ans = N;
 	}
 
