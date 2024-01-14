@@ -14,7 +14,7 @@ long calculateDigitSum(long n) {
 long countGoodNumbers(long n) {
 	long count = 0;
 
-	for (long i = 1; i <= N; i++) {
+	for (long i = 1; i <= n; i++) {
 		if (i % calculateDigitSum(i) == 0) {
 			count++;
 		}
