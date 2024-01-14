@@ -1,7 +1,7 @@
 #include <iostream>
-using namespaceq std;
+using namespace std;
 
-int countTrailingZero (int N) {
+int countTrailingZero (int n) {
 	int count = 0;
 
 	while ((n & 1) == 0 && n != 0) {
