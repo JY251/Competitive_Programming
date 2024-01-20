@@ -8,14 +8,6 @@ bool isExtendedABC(const string& s) {
 		return true;
 	}
 
-	// char firstChar = s[0];
-	// char secondChar = 0;
-	// char thirdChar = 0;
-	
-	// if (firstChar != 'A') {
-	// 	return false;
-	// }
-
 	for (char c : s) {
 		if (c != 'A') {
 			if (c == 'B') {
