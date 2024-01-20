@@ -18,7 +18,7 @@ int main() {
 	}
 
 	if (takahashiScore > aokiScore) {
-		cout << "Takahashi" << endl:
+		cout << "Takahashi" << endl;
 	} else if (takahashiScore < aokiScore) {
 		cout << "Aoki" << endl;
 	} else {
