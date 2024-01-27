@@ -18,15 +18,30 @@ int max_servings(vector<int>& Q, vector<int>& A, vector<int>& B) {
 		}
 	}
 
-	int max_servings = *min_element(max_per_ingredient.begin(), max_per_ingredient.end());
+	int max_servings_A_init = *min_element(max_per_ingredient.begin(), max_per_ingredient.end());
 
-	// cout << "max_servings (line 24): " << max_servings << endl; // OK
+	// cout << "max_servings (line 24): " << max_servings_A_init << endl; // OK
 
-	vector<int> dp(max_servings, 0);
+	vector<int> dp(max_servings_A_init, 0);
 
-	dp[0] = max_servings;
-	for (int i = 1; i < max_servings; i++) {
-		int max_servings_A = dp[0] - i;
+	// dp[0] = max_servings_A_init;
+
+	vector<int> max_per_ingredient_B_init(N, 0);
+	for (int i = 0; i < N; i++) {
+		if (B[i] != 0) {
+			max_per_ingredient_B_init[i] = (Q[i] - max_servings_A_init * A[i]) / B[i];
+		} else {
+			max_per_ingredient_B_init[i] = INT_MAX;
+		}
+	}
+
+	int max_servings_B_init = *min_element(max_per_ingredient_B_init.begin(), max_per_ingredient_B_init.end());
+
+	dp[0] = max_servings_A_init + max_servings_B_init;
+
+	
+	for (int i = 1; i < max_servings_A_init; i++) {
+		int max_servings_A = max_servings_A_init - i;
 
 		vector<int> max_per_ingredient_B(N, 0);
 		for (int j = 0; j < N; j++) {
@@ -35,16 +50,20 @@ int max_servings(vector<int>& Q, vector<int>& A, vector<int>& B) {
 			} else {
 				max_per_ingredient_B[j] = INT_MAX;
 			}
-			// max_per_ingredient_B[j] = (Q[j] - max_servings_A * A[j]) / B[j];
+
+			
+			// cout << "max_per_ingredient_B[" << j << "]: " << max_per_ingredient_B[j] << endl; // OK
 		}
 		int max_servings_B = *min_element(max_per_ingredient_B.begin(), max_per_ingredient_B.end());
+
+		// cout << "max_servings_B (line 40): " << max_servings_B << " j: " << i << endl; // OK
 
 		// cout << "max_servings_A (line 42): " << max_servings_A << " j: " << i << endl; // OK
 
 		dp[i] = max_servings_A + max_servings_B;
 	}
 
-	max_servings = *max_element(dp.begin(), dp.end());
+	int max_servings = *max_element(dp.begin(), dp.end());
 
 	// for (int i = 0; i < max_servings; i++) {
 	// 	cout << dp[i] << " ";
