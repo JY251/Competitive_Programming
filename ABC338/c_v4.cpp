@@ -22,9 +22,21 @@ int max_servings(vector<int>& Q, vector<int>& A, vector<int>& B) {
 
 	// cout << "max_servings (line 24): " << max_servings_A_init << endl; // OK
 
-	vector<int> dp(max_servings_A_init, 0);
 
-	// dp[0] = max_servings_A_init;
+	if (max_servings_A_init == 0) {
+		vector<int> max_per_ingredient_B_init(N, 0);
+		for (int i = 0; i < N; i++) {
+			if (B[i] != 0) {
+				max_per_ingredient_B_init[i] = (Q[i]) / B[i];
+			} else {
+				max_per_ingredient_B_init[i] = INT_MAX;
+			}
+		}
+		int max_servings_B_init = *min_element(max_per_ingredient_B_init.begin(), max_per_ingredient_B_init.end());
+		return max_servings_B_init;
+	}
+
+	vector<int> dp(max_servings_A_init, 0);
 
 	vector<int> max_per_ingredient_B_init(N, 0);
 	for (int i = 0; i < N; i++) {
