@@ -41,7 +41,7 @@ int main() {
 			long long sum_with_multiplication = (S[i] - S[l - 1]) * C;
 			long long sum_without_multiplication = S[i] - S[l - 1];
 
-			dp[i] = max(dp[i], dp[l - i] + max(sum_with_multiplication, sum_without_multiplication));
+			dp[i] = max(dp[i], dp[l - 1] + max(sum_with_multiplication, sum_without_multiplication));
 		}
 	}
 	cout << dp[N] << endl;
