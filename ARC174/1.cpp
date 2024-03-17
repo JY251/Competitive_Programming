@@ -12,20 +12,6 @@ vector<long long> cumulative_sum(const vector<int> &A) {
 	return S;
 }
 
-long long solve(const vector<int>& A, int C) {
-	int N = A.size();
-	vector<long long> S = cumulative_sum(A);
-	vector<long long> dp(N + 1, 0);
-
-	for (int i = 1; i <= N; i++) {
-		for (int l = 1; l <= i; l++){
-			dp[i] = max(dp[i], dp[l - 1] + (S[i] - S[l - 1]) * C);
-		}
-	}
-
-	return dp[N];
-}
-
 int main() {
 	int N, C;
 	cin >> N >> C;
