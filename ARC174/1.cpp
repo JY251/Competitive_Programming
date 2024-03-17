@@ -5,7 +5,8 @@ using namespace std;
 
 vector<long long> cumulative_sum(const vector<int> &A) {
 	vector<long long> S(A.size() + 1, 0);
-	for (int i = 0; i < A.size(); i++) {
+	S[0] = 0;
+	for (int i = 1; i <= A.size(); i++) {
 		S[i] = S[i - 1] + A[i-1];
 	}
 }
