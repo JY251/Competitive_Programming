@@ -45,5 +45,16 @@ int main() {
 		}
 	}
 	cout << dp[N] << endl;
+
+	// debug
+	for (int i = 0; i <= N; i++) {
+		cout << dp[i] << " ";
+	}
+	cout << endl;
+
+	for (int i = 0; i <= N; i++) {
+		cout << S[i] << " ";
+	}
+	cout << endl;
 	return 0;
 }
