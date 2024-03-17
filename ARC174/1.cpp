@@ -9,6 +9,7 @@ vector<long long> cumulative_sum(const vector<int> &A) {
 	for (int i = 1; i <= A.size(); i++) {
 		S[i] = S[i - 1] + A[i-1];
 	}
+	return S;
 }
 
 long long solve(const vector<int>& A, int C) {
