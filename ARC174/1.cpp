@@ -29,17 +29,19 @@ int main() {
 	vector <long long> dp(N + 1, 0);
 	for (int i = 1; i <= N; i++) {
 		for (int l = 1; l <= i; l++) {
-			long long sum_with_multiplication = (S[i] - S[l - 1]) * C;
-			long long sum_without_multiplication = S[i] - S[l - 1];
+			for (int r = 1; r <= i; r++) {
+				long long sum_with_multiplication = (S[r] - S[l - 1]) * C + S[i] - S[r];
+				long long sum_without_multiplication = S[i] - S[l - 1];
 
-			dp[i] = max(dp[i], S[l - 1] + max(sum_with_multiplication, sum_without_multiplication));
-			// debug
-			for (int i = 0; i <= N; i++) {
-				cout << dp[i] << " ";
+				dp[i] = max(dp[i], S[l - 1] + max(sum_with_multiplication, sum_without_multiplication));
+				// debug
+				for (int i = 0; i <= N; i++) {
+					cout << dp[i] << " ";
+				}
+				cout << "(i = " << i << ", l = " << l << ")";
+				cout << "; (sum_with_multiplication = " << sum_with_multiplication << ", sum_without_multiplication = " << sum_without_multiplication << ")";
+				cout << endl;
 			}
-			cout << "(i = " << i << ", l = " << l << ")";
-			cout << "; (sum_with_multiplication = " << sum_with_multiplication << ", sum_without_multiplication = " << sum_without_multiplication << ")";
-			cout << endl;
 		}
 	}
 	cout << dp[N] << endl;
