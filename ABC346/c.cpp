@@ -11,13 +11,15 @@ int main() {
 	for (int i = 0; i < N; i++) {
 		int a;
 		cin >> a;
-		appeared[a] = true;
+		if(a <= K) {
+			appeared[a] = true;
+		}
 	}
 	
-	int sum = 0;
+	long long sum = 0;
 	for (int i = 1; i <= K; i++) {
 		if (!appeared[i]) {
-			sum += i;
+			sum += (long long)i;
 		}
 	}
 
