@@ -3,6 +3,18 @@
 
 using namespace std;
 
+pair<int, int> mostDistantMod(const vector<int>& nums, int mod) {
+	vector<vector<int>> mods;
+
+	for (int i = 0; i < nums.size(); i++) {
+		int remainder = nums[i] % mod;
+		mods[remainder].push_back(i);
+	}
+
+	if (!)
+}
+
+
 int main() {
 	int N, A, B;
 	cin >> N >> A >> B;
