@@ -20,11 +20,6 @@ int main() {
 			}
 		}
 		if (is_all_holiday == true) {
-			// cout << i << endl;
-			// for (int j = 0; j < N; j++) {
-			// 	cout << (i + D[j]) % (A+B) << " ";
-			// }
-			// cout << endl;
 			cout << "Yes" << endl;
 			return 0;
 		}
