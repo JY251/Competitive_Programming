@@ -13,14 +13,18 @@ int main() {
 	}
 
 	for (int i = 0; i < A+B; i++) {
-		bool is_all_holiday = false;
+		bool is_all_holiday = true;
 		for (int j = 0; j < N; j++) {
-			is_all_holiday = true;
 			if ((i + D[j]) % (A+B) >= A) {
 				is_all_holiday = false;
 			}
 		}
 		if (is_all_holiday == true) {
+			// cout << i << endl;
+			// for (int j = 0; j < N; j++) {
+			// 	cout << (i + D[j]) % (A+B) << " ";
+			// }
+			// cout << endl;
 			cout << "Yes" << endl;
 			return 0;
 		}
