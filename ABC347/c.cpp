@@ -6,8 +6,7 @@ using namespace std;
 
 // pair<int, int> mostDistantMod(const vector<int>& nums, int mod) {
 bool mostDistantMod(const vector<int>& nums, int mod, int range) {
-	vector<int> nums_mods;
-	printf("No seg fault 1");
+	vector<int> nums_mods(nums.size());
 	for (long unsigned int i = 0; i < nums.size(); i++) {
 		nums_mods[i] = nums[i] % mod;
 	}
@@ -27,11 +26,9 @@ int main() {
 	cin >> N >> A >> B;
 
 	vector<int> D(N);
-	printf("No seg fault 0");
 	for (int i = 0; i < N; i++) {
 		cin >> D[i];
 	}
-	printf("No seg fault 2");
 
 	bool NotOverHoliday = mostDistantMod(D,A+B, A);
 
