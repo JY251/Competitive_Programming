@@ -17,6 +17,7 @@ int main() {
 		for (int j = 0; j < N; j++) {
 			if ((i + D[j]) % (A+B) >= A) {
 				is_all_holiday = false;
+				break;
 			}
 		}
 		if (is_all_holiday == true) {
