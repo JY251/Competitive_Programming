@@ -13,7 +13,7 @@ bool mostDistantMod(const vector<int>& nums, int mod, int range) {
 
 	int max_distance = max_element(nums_mods.begin(), nums_mods.end()) - min_element(nums_mods.begin(), nums_mods.end());
 
-	if (max_distance >= range) {
+	if (max_distance >= range && (mod - max_distance) >= range) {
 		return false;
 	} else {
 		return true;
