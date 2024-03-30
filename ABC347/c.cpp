@@ -4,8 +4,8 @@
 
 using namespace std;
 
-// pair<int, int> mostDistantMod(const vector<int>& nums, int mod) {
-bool mostDistantMod(const vector<int>& nums, int mod, int range) {
+pair<bool, pair<int, int>> mostDistantMod(const vector<int>& nums, int mod, int range) {
+// bool mostDistantMod(const vector<int>& nums, int mod, int range) {
 	vector<int> nums_mods(nums.size());
 	for (long unsigned int i = 0; i < nums.size(); i++) {
 		nums_mods[i] = nums[i] % mod;
@@ -14,9 +14,9 @@ bool mostDistantMod(const vector<int>& nums, int mod, int range) {
 	int max_distance = max_element(nums_mods.begin(), nums_mods.end()) - min_element(nums_mods.begin(), nums_mods.end());
 
 	if (max_distance >= range && (mod - max_distance) >= range) {
-		return false;
+		return make_pair(false, make_pair(max_distance, mod - max_distance));
 	} else {
-		return true;
+		return make_pair(true, make_pair(max_distance, mod - max_distance));
 	}
 }
 
