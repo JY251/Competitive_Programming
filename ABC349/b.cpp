@@ -1,5 +1,6 @@
 #include <iostream>
 #include <unordered_map>
+#include <vector>
 
 using namespace std;
 
@@ -7,6 +8,26 @@ bool isGoodString(string s) {
 	unordered_map<char, int> charCount;
 	for (char c: s) {
 		charCount[c]++;
+	}
+
+	int remaining = s.size();
+	int i = 1;
+
+	vector<bool> visited(s.size(), false);
+	while (remaining != 0) {
+		for (int j = 0; j < s.size(); j++) {
+			if (visited[j]) {
+				continue;
+			} else {
+				if ()
+				visited[j] = true;
+				remaining
+			}
+		}
+	}
+
+	for (int i = 0; i < s.size(); i++) {
+
 	}
 
 	for (auto it: charCount) {
