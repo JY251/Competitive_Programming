@@ -10,13 +10,21 @@ bool isGoodString(string s) {
 		charCount[c]++;
 	}
 
+	for (auto it: charCount) {
+		cout << it.first << " " << it.second << endl;
+	}
+
 	vector<int> i_counts(s.size(), 0);
 
 	for (auto it: charCount) {
-		i_counts[it.second]++;
+		i_counts[it.second - 1]++; 
+		cout << it.second << endl;
 	}
 
-	for (int i_count: i_counts) {
+	for (int i = 0; i < i_counts.size(); i++) {
+		int i_count = i_counts[i];
+	// for (int i_count: i_counts) {
+		cout << i_count << endl;
 		if (i_count != 2 && i_count != 0) {
 			return false;
 		}
