@@ -6,7 +6,9 @@ using namespace std;
 
 bool isAirportCode(string s, string t, int n) {
 	// check if t is a length 3 substring of s
-	int j = 0;
+	// long unsigned int
+	size_t j = 0;
+	cout << s.size() << endl;
 	for (int i = 0; i < n; i++) {
 		if (isupper(t[i])) {
 		} else {
@@ -36,6 +38,8 @@ int main() {
 	bool isTrue2 = isAirportCode(s, t, 2) && t[2] == 'X';
 	// bool isTrue2 = isAirportCode(s, t, 2);
 	isTrue = isTrue3 || isTrue2;
+	// isTrue = isTrue3;
+	// isTrue = isTrue2;
 	}
 
 	
