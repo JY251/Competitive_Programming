@@ -4,25 +4,17 @@
 
 using namespace std;
 
-bool isAirportCode(string s, string t) {
+bool isAirportCode(string s, string t, int n) {
 	// check if t is a length 3 substring of s
 	int j = 0;
-	cout << "s: " << s << " t: " << t << endl;
-	for (int i = 0; i < 3; i++) {
-		cout << "i: " << i << endl;
+	for (int i = 0; i < n; i++) {
 		if (isupper(t[i])) {
-			// continue; 
-			// continue will skip the rest of the loop and go to the next iteration
-			// thus, this continue should be removed
 		} else {
-			// cout << "Not upper case\n" << endl;
 			return false;
 		}
-		cout << "i (2): " << i << endl;
 		for (; j < s.size(); j++) {
 			if (t[i] == s[j]  + 'A' - 'a' ) {
-				cout << "i: " << i << " j: " << j << endl;
-				if (i == 2) {
+				if (i == n-1) {
 					return true;
 				}
 				break;
@@ -35,7 +27,10 @@ bool isAirportCode(string s, string t) {
 int main() {
 	string s, t;
 	cin >> s >> t;
-	bool isTrue = isAirportCode(s, t);
+	bool isTrue3 = isAirportCode(s, t, 3);
+	bool isTrue2 = isAirportCode(s, t, 2) && t[2] == 'X';
+	// bool isTrue2 = isAirportCode(s, t, 2);
+	bool isTrue = isTrue3 || isTrue2;
 	
 	if (isTrue) {
 		cout << "Yes" << endl;
