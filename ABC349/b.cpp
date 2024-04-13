@@ -10,28 +10,14 @@ bool isGoodString(string s) {
 		charCount[c]++;
 	}
 
-	int remaining = s.size();
-	int i = 1;
-
-	vector<bool> visited(s.size(), false);
-	while (remaining != 0) {
-		for (int j = 0; j < s.size(); j++) {
-			if (visited[j]) {
-				continue;
-			} else {
-				if ()
-				visited[j] = true;
-				remaining
-			}
-		}
-	}
-
-	for (int i = 0; i < s.size(); i++) {
-
-	}
+	vector<int> i_counts(s.size(), 0);
 
 	for (auto it: charCount) {
-		if (it.second != 0 && it.second != 2) {
+		i_counts[it.second]++;
+	}
+
+	for (int i_count: i_counts) {
+		if (i_count != 2 && i_count != 0) {
 			return false;
 		}
 	}
