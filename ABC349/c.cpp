@@ -4,7 +4,8 @@
 
 using namespace std;
 
-bool isAirportCode(string s, string t, int n) {
+// bool isAirportCode(string s, string t, int n) {
+bool isAirportCode(string &s, string &t, int n) { // ポインタ型にしたほうが良い（それでも 3/48 caseでWAになる）
 	// check if t is a length 3 substring of s
 	// long unsigned int
 	size_t j = 0;
@@ -19,6 +20,10 @@ bool isAirportCode(string s, string t, int n) {
 				if (i == n-1) {
 					return true;
 				}
+				j++; 
+				// 本番はここで詰まりました。これがないと、3/48のテストケースでWAになります。
+				// ここでjをincrementしないと、"bcc - BBC"のような場合を誤ってtrueとしてしまう
+				// breakするため、jがincrementされず、次のループで同じ文字を見ることになる - Bが2回出現していると誤って判断され、BBCが部分列になっていると判断される
 				break;
 			}
 		}
