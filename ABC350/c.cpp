@@ -51,7 +51,7 @@ void quick_sort(vector<int>& vec, int low, int high) {
 }
 
 int main() {
-	int N;
+	int N; // 1 <= N <= 10^5 (N: -2^31 ~ 2^31 = -2,147,483,648 ~ 2,147,483,647)
 	cin >> N;
 
 	swap_pairs = vector<pair<int, int>>(0);
