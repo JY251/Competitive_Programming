@@ -19,22 +19,23 @@ void swap_in_vec(vector<int>& vec, int i, int j) {
 }
 
 int partition(vector<int>& vec, int low, int high) {
-	int pivot = vec[low];
-	// int pivot = min(vec[low], vec[low+1]);
+	// int pivot = vec[low]; // this will ends up infinite loop when (3, 4) => divided to (3, 4) => [][3, 4].
+	// int pivot = min(vec[low], vec[low+1]); // same with above
+	int pivot = max(vec[low], vec[low+1]);
 	int i = low, j = high;
 
-	while(i < j) {
+	while(true) {
 		while(vec[i] < pivot) i++;
 		while(vec[j] >= pivot) j--;
 
-		// if (i >= j) return i;
+		if (i >= j) return i;
 		swap_in_vec(vec, i, j);
 		swap_pairs.push_back(make_pair(i, j));
 		i++;
 		j--;
 	}
 
-	return i;
+	// return i;
 }
 
 // // the following is O(n) for partitioning
@@ -87,7 +88,7 @@ int main() {
 	}
 	quick_sort(A, 0, N-1);
 
-	// print_vec(A, N);
+	print_vec(A, N);
 	cout << swap_pairs.size() << endl;
 	for (size_t i = 0; i < swap_pairs.size(); i++) {
 		cout << swap_pairs[i].first + 1 << " " << swap_pairs[i].second + 1 << endl;
