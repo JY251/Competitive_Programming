@@ -22,10 +22,10 @@ int main() {
 	}
 
 	for (int i = 0; i < Q; i++) {
-		if (ExistTooth[T[i]] == 1) {
-			ExistTooth[T[i]] = 0;
+		if (ExistTooth[T[i]-1] == 1) {
+			ExistTooth[T[i]-1] = 0;
 		} else {
-			ExistTooth[T[i]] = 1;
+			ExistTooth[T[i]-1] = 1;
 		}
 		// print_vec(ExistTooth, N);
 	}
