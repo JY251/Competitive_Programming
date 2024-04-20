@@ -19,34 +19,59 @@ void swap_in_vec(vector<int>& vec, int i, int j) {
 }
 
 int partition(vector<int>& vec, int low, int high) {
-	int pivot = vec[high];
-	int i = low - 1; // iは現時点で最後にpivotより小さい要素がある場所を表す (iより左（iも含む）はpivotより小さい)
+	int pivot = vec[low];
+	// int pivot = min(vec[low], vec[low+1]);
+	int i = low, j = high;
 
-	// loop shoulbe be till j = high - 1 (high - 2ではだめ。)
-	// 3 4 1 2 5のような配列だったら、high - 2だと、3 4 1 5 2のようになってしまう
-	for (int j = low; j < high; j++) { // jは現時点で見ている要素の場所を表す
-		if (vec[j] < pivot) {
-			// もしvec[j]がpivotより小さいならば、vec[j]をiの位置に持っていき、iよりも左（iも含む）にpivotより小さい要素がある状態にする
-			i++;
-			swap_in_vec(vec, i, j);
-			if (i != j) {
-				swap_pairs.push_back(make_pair(i, j));
-			}
-		}
+	while(i < j) {
+		while(vec[i] < pivot) i++;
+		while(vec[j] >= pivot) j--;
+
+		// if (i >= j) return i;
+		swap_in_vec(vec, i, j);
+		swap_pairs.push_back(make_pair(i, j));
+		i++;
+		j--;
 	}
-	swap_in_vec(vec, i+1, high);
-	if (i+1 != high) {
-		swap_pairs.push_back(make_pair(i+1, high));
-	}
-	return i+1;
+
+	return i;
 }
 
+// // the following is O(n) for partitioning
+// int partition(vector<int>& vec, int low, int high) {
+// 	int pivot = vec[high];
+// 	int i = low - 1; // iは現時点で最後にpivotより小さい要素がある場所を表す (iより左（iも含む）はpivotより小さい)
+
+// 	// loop shoulbe be till j = high - 1 (high - 2ではだめ。)
+// 	// 3 4 1 2 5のような配列だったら、high - 2だと、3 4 1 5 2のようになってしまう
+// 	for (int j = low; j < high; j++) { // jは現時点で見ている要素の場所を表す
+// 		if (vec[j] < pivot) {
+// 			// もしvec[j]がpivotより小さいならば、vec[j]をiの位置に持っていき、iよりも左（iも含む）にpivotより小さい要素がある状態にする
+// 			i++;
+// 			swap_in_vec(vec, i, j);
+// 			if (i != j) {
+// 				swap_pairs.push_back(make_pair(i, j));
+// 			}
+// 		}
+// 	}
+// 	swap_in_vec(vec, i+1, high);
+// 	if (i+1 != high) {
+// 		swap_pairs.push_back(make_pair(i+1, high));
+// 	}
+// 	return i+1;
+// }
+
 void quick_sort(vector<int>& vec, int low, int high) {
+	printf("low: %d, high: %d\n", low, high);
+
+	// if the following condition does not work because array like (2, 1) should be sorted but low < high - 1 is not satisfied (low = 0, high = 1)
+	// if (low < high - 1) { // low < high is not enough: In case of low = 3, high = 4, you don't need to divide to do quick_sort
 	if (low < high) {
 		int pivotIndex = partition(vec, low, high);
-		// print_vec(vec, high+1);
+		printf("partitioned at %d\n", pivotIndex);
+		print_vec(vec, high+1);
 		quick_sort(vec, low, pivotIndex-1);
-		quick_sort(vec, pivotIndex+1, high);
+		quick_sort(vec, pivotIndex, high);
 	}
 }
 
