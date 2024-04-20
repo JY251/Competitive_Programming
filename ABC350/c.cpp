@@ -19,7 +19,6 @@ void swap_in_vec(vector<int>& vec, int i, int j) {
 }
 
 int partition(vector<int>& vec, int low, int high) {
-	int swap_counter = 0;
 	int pivot = vec[high];
 	int i = low - 1; // iは現時点で最後にpivotより小さい要素がある場所を表す (iより左（iも含む）はpivotより小さい)
 
@@ -65,7 +64,7 @@ int main() {
 
 	// print_vec(A, N);
 	cout << swap_pairs.size() << endl;
-	for (int i = 0; i < swap_pairs.size(); i++) {
+	for (size_t i = 0; i < swap_pairs.size(); i++) {
 		cout << swap_pairs[i].first + 1 << " " << swap_pairs[i].second + 1 << endl;
 	}
 
