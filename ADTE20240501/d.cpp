@@ -3,10 +3,10 @@
 using namespace std;
 
 int main() {
-	int X;
+	long X;
 	cin >> X;
 
-	int round = X / 10;
+	long round = X / 10;
 	if (X % 10 == 0) {
 		cout << round << endl;
 	} else {
