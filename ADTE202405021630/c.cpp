@@ -15,8 +15,8 @@ int main() {
 	int power = 1;
 
 	// x_m x_l
-	long x_m = 0;
-	long x_l = 0;
+	unsigned long x_m = 0;
+	unsigned long x_l = 0;
 
 	// cout << numeric_limits<long>::max() << endl;
 
@@ -27,12 +27,12 @@ int main() {
 		// 		x_l = numeric_limits<long>::max() - x_l;
 		// 	}
 		// }
-		x_l += (long)power * (long)a[i];
+		x_l += (unsigned long)power * (unsigned long)a[i];
 		power *= 2;
 	}
 
 	for (int i = 32; i < 64; i++) {
-		x_m += (long)power * (long)a[i];
+		x_m += (unsigned long)power * (unsigned long)a[i];
 		power *= 2;
 	}
 
