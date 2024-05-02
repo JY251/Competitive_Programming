@@ -26,7 +26,11 @@ int main() {
 					}
 				}
 			} else {
-				if (target[i + k - target_len] == 'w') {
+				int idx = i + k;
+				while (i + k < target_len) {
+					idx -= target_len;
+				}
+				if (target[idx] == 'w') {
 					count++;
 					if (count == w + 1) {
 						answer = false;
