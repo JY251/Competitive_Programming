@@ -27,9 +27,11 @@ int main() {
 				}
 			} else {
 				int idx = i + k;
-				while (i + k < target_len) {
+				cout << "(starts from " << i << " - idx: " << idx;
+				while (idx >= target_len) {
 					idx -= target_len;
 				}
+				cout << " ( now reduced to " << idx << ")" << endl;
 				if (target[idx] == 'w') {
 					count++;
 					if (count == w + 1) {
