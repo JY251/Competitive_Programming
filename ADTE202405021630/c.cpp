@@ -12,7 +12,7 @@ int main() {
 		cin >> a[i];
 	}
 
-	int power = 1;
+	unsigned long power = 1;
 
 	// x_m x_l
 	unsigned long x_m = 0;
@@ -29,11 +29,13 @@ int main() {
 		// }
 		x_l += (unsigned long)power * (unsigned long)a[i];
 		power *= 2;
+		cout << power << " (" << i << "; x_l)" << endl;
 	}
 
 	for (int i = 32; i < 64; i++) {
 		x_m += (unsigned long)power * (unsigned long)a[i];
 		power *= 2;
+		cout << power << " (" << i << "; x_m)" << endl;
 	}
 
 	if (x_m == 0) {
@@ -42,6 +44,7 @@ int main() {
 		cout << x_m << x_l << endl;
 	}
 
+	cout << "debug: " << "x_m: " << x_m << " x_l: " << x_l << " x_m + x_l: " << x_m + x_l << "\n";
 
 
 
