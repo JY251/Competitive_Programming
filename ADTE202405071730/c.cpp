@@ -14,21 +14,17 @@ int main() {
 		cin >> w_x[i].first >> w_x[i].second;
 	}
 
-	sort(w_x.begin(), w_x.end(), [](const pair<int, int>& a, const pair<int, int>& b) {
-		return a.second < b.second;
-	});
-
-	int ans = 0, cnt = 0;
-	for (const auto& p: w_x) {
-		int w = p.first, x = p.second;
-		if (x <= 9) {
-			// OK
-			cnt += w;
-		} else if (x < 18) {
-			ans = max(ans, cnt);
-			cnt = w;
-		} else {
-			ans = max(ans, cnt);
+	int ans = 0;
+	for (int i = 0; i < 24; i++) {
+		for (int k = 0; k <= 9; k++) {
+			int j = i + 9;
+			int attendees = 0;
+			for (auto& office: w_x) {
+				if (office.second >= i && office.second <= j) {
+					attendees += office.first;
+				}
+			}
+			ans = max(ans, attendees);
 		}
 	}
 
