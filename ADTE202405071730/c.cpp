@@ -21,7 +21,7 @@ int main() {
 			for (auto& office: w_x) {
 				// [office.second + 9, office.second + 18]
 				// office.second + 9 < i < i+l < office.second + 18
-				if (office.second + 9 <= i && j <= office.second + 18) {
+				if ((office.second + 9)%24 <= i && j <= (office.second + 18)%24) {
 					attendees += office.first;
 				}
 			ans = max(ans, attendees);
