@@ -22,6 +22,7 @@ int main() {
 	for (const auto& p: w_x) {
 		int w = p.first, x = p.second;
 		if (x <= 9) {
+			// OK
 			cnt += w;
 		} else if (x < 18) {
 			ans = max(ans, cnt);
