@@ -16,9 +16,7 @@ int main() {
 
 	int ans = 0;
 	for (int i = 0; i < 24; i++) {
-		for (int k = 0; k <= 9; k++) {
-			// time candidate: [i, i+k]
-			int j = i + k;
+			int j = i + 1;
 			int attendees = 0;
 			for (auto& office: w_x) {
 				// [office.second + 9, office.second + 18]
@@ -26,7 +24,6 @@ int main() {
 				if (office.second + 9 <= i && j <= office.second + 18) {
 					attendees += office.first;
 				}
-			}
 			ans = max(ans, attendees);
 		}
 	}
