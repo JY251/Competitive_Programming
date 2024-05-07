@@ -17,10 +17,13 @@ int main() {
 	int ans = 0;
 	for (int i = 0; i < 24; i++) {
 		for (int k = 0; k <= 9; k++) {
-			int j = i + 9;
+			// time candidate: [i, i+k]
+			int j = i + k;
 			int attendees = 0;
 			for (auto& office: w_x) {
-				if (office.second >= i && office.second <= j) {
+				// [office.second + 9, office.second + 18]
+				// office.second + 9 < i < i+l < office.second + 18
+				if (office.second + 9 <= i && j <= office.second + 18) {
 					attendees += office.first;
 				}
 			}
