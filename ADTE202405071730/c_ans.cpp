@@ -26,7 +26,7 @@ int main() {
 	// cnt[i mod 24] + cnt[(i+1) mod 24] + ... + cnt[(i+8) mod 24] 
 	for (int i = 0; i < 24; i++) {
 		int sum = 0;
-		for (int j = 0; j < 8; j++) {
+		for (int j = 0; j <= 8; j++) {
 			sum += cnt[(i+j)%24];
 		}
 		ans = max(ans, sum);
