@@ -21,15 +21,24 @@ vector<pair<int, int>> find_continuous_T(string& s) {
 				previous_continuous_T = 1;
 				is_prev_T = 1;
 			}
+			// Note: Not to forget to push_back when the last element is T
+			if (i == n-1) {
+				continuous_T.push_back({i-previous_continuous_T+1, previous_continuous_T});
+			}
 		} else {
 			if (is_prev_T) {
 				// prev is T but this is not T
 				continuous_T.push_back({i-previous_continuous_T, previous_continuous_T});
 			} else {
 				// prev is not T and this is not T
-				continue;
 			}
+			// Note: Not to forget to reset is_prev_T and previous_continuous_T
+			is_prev_T = 0;
+			previous_continuous_T = 0;
 		}
+	}
+	for (int i = 0; i < continuous_T.size(); i++) {
+		cout << continuous_T[i].first << " " << continuous_T[i].second << endl;
 	}
 	return continuous_T;
 }
