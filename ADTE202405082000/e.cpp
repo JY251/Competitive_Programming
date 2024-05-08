@@ -48,8 +48,30 @@ int main() {
 	for (int i = 0; i < h; i++) {
 		vector<pair<int, int>> continuous_T = find_continuous_T(s[i]);
 		for (auto& p : continuous_T) {
-			cnt += p.second / 2;
+			if (p.second % 2 == 0) {
+				// even number of continuous T
+				for (int j = 0; j < p.second; j++) {
+					if (j % 2 == 0) {
+						s[i][j+p.first] = 'P';
+					} else {
+						s[i][j+p.first] = 'C';
+					}
+				}
+			} else {
+				// odd number of continuous T
+				for (int j = 0; j < p.second - 1; j++) {
+					if (j % 2 == 0) {
+						s[i][j+p.first] = 'P';
+					} else {
+						s[i][j+p.first] = 'C';
+					}
+				}
+			}
 		}
+	}
+
+	for (int i = 0; i < w; i++) {
+		cout << s[i] << endl;
 	}
 	return 0;
 }
