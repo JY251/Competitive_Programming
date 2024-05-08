@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <unordered_map>
 
 using namespace std;
 
@@ -9,17 +8,33 @@ int main() {
 	int n, m;
 	cin >> n >> m;
 
-	vector<int> c(n);
-	unordered_map<string, int> price;
-	int price_others;
+	vector<string> c(n);
+	vector<string> d(m+1); // use same index as p
+	vector<int> p(m+1);
 
 	for (int i = 0; i < n; i++) {
 		cin >> c[i];
 	}
-	cin >> price_others;
 	for (int i = 0; i < m; i++) {
-		
+		cin >> d[i+1];
+	}
+	for (int i = 0; i < m+1; i++) {
+		cin >> p[i];
 	}
 
+	// C: what takahashi has eaten
+	// D[i] - P[i]: color D[i] takes P[i] JPY
 
+	int total = 0;
+	for (int i = 0; i < n; i++) {
+		for (int j = 1; j < m+1; j++) {
+			if (d[j] == c[i]) {
+				total += p[j];
+				break;
+			}
+		}
+		total += p[0];
+	}
+	cout << total << endl;
+	return 0;
 }
