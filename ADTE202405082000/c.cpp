@@ -27,13 +27,17 @@ int main() {
 
 	int total = 0;
 	for (int i = 0; i < n; i++) {
+		int is_found = 0;
 		for (int j = 1; j < m+1; j++) {
 			if (d[j] == c[i]) {
 				total += p[j];
+				is_found = 1;
 				break;
 			}
 		}
-		total += p[0];
+		if (is_found == 0) {
+			total += p[0];
+		}
 	}
 	cout << total << endl;
 	return 0;
