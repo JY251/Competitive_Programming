@@ -23,12 +23,16 @@ vector<pair<int, int>> find_continuous_T(string& s) {
 			}
 			// Note: Not to forget to push_back when the last element is T
 			if (i == n-1) {
-				continuous_T.push_back({i-previous_continuous_T+1, previous_continuous_T});
+				if (previous_continuous_T >= 2) {
+					continuous_T.push_back({i-previous_continuous_T+1, previous_continuous_T});
+				}
 			}
 		} else {
 			if (is_prev_T) {
 				// prev is T but this is not T
-				continuous_T.push_back({i-previous_continuous_T, previous_continuous_T});
+				if (previous_continuous_T >= 2) {
+					continuous_T.push_back({i-previous_continuous_T, previous_continuous_T});
+				}
 			} else {
 				// prev is not T and this is not T
 			}
