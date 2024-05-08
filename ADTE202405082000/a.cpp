@@ -10,15 +10,19 @@ int main() {
 		cout << "No" << endl;
 		return 0;
 	}
-	for (int i = 1; i < s.size(); i++) {
+	for (int i = 1; i < (int)s.size(); i++) {
+		if (s[i] == '=') continue; // without this, <<> or <<<<<> would be valid
 		if (s[i] == '>') {
-			if (i == s.size() - 1) {
+			if (i == (int)s.size() - 1) {
 				cout << "Yes" << endl;
 				return 0;
 			} else {
 				cout << "No" << endl;
 				return 0;
 			}
+		} else {
+			cout << "No" << endl;
+			return 0;
 		}
 	}
 
