@@ -41,9 +41,6 @@ vector<pair<int, int>> find_continuous_T(string& s) {
 			previous_continuous_T = 0;
 		}
 	}
-	for (int i = 0; i < continuous_T.size(); i++) {
-		cout << continuous_T[i].first << " " << continuous_T[i].second << endl;
-	}
 	return continuous_T;
 }
 
@@ -83,7 +80,7 @@ int main() {
 		}
 	}
 
-	for (int i = 0; i < w; i++) {
+	for (int i = 0; i < h; i++) {
 		cout << s[i] << endl;
 	}
 	return 0;
