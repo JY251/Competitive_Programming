@@ -30,6 +30,21 @@ int main() {
 	// cout << (long) 998244352 * 998244352 << endl;
 	// cout << 998244352 * 998244352 << endl;
 
+	// cout << (((((a_new*b_new)%div)*c_new)%div) - ((((d_new*e_new)%div)*f_new)%div)) << endl;
+	// cout << (((((a_new*b_new)%div)*c_new)%div) - ((((d_new*e_new)%div)*f_new)%div))%div << endl;
+
+	// cout << (long)-994742297488266057333342204 << endl;
+	// cout << (long)-994742297488266057333342204 % div << endl;
+
+	// cout << -10 % 3 << endl;
+
+	// `%` in C++ does not necessarily return positive value
+	// e.g., -10 % 3 will be -1, but not 2
+	// you need to add `div` to make it positive
+	if (ans < 0) {
+		ans += div;
+	}
+
 
 	cout << ans << endl;
 
