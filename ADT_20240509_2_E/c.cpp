@@ -23,7 +23,9 @@ int main() {
 	// e.g., 998244352 % 998244353 will be 998244352 (but not -1), so it will cause digit overflow
 	// a_new, b_new, ... will be 1 ~ 998244352
 	// however, 998244352 * 998244352 will be overflowed of int; long is OK
-	long ans = ((a_new*b_new*c_new) - (d_new*e_new*f_new))%div;
+
+	// 998244352 * 998244352 * 998244352 will overflow even long => take modulo
+	long ans = (((a_new*b_new%div)*c_new%div) - ((d_new*e_new)%div*f_new%div))%div;
 
 	// cout << (long) 998244352 * 998244352 << endl;
 	// cout << 998244352 * 998244352 << endl;
