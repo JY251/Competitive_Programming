@@ -25,7 +25,7 @@ int main() {
 	// however, 998244352 * 998244352 will be overflowed of int; long is OK
 
 	// 998244352 * 998244352 * 998244352 will overflow even long => take modulo
-	long ans = (((a_new*b_new%div)*c_new%div) - ((d_new*e_new)%div*f_new%div))%div;
+	long ans = (((((a_new*b_new)%div)*c_new)%div) - ((((d_new*e_new)%div)*f_new)%div))%div;
 
 	// cout << (long) 998244352 * 998244352 << endl;
 	// cout << 998244352 * 998244352 << endl;
