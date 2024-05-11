@@ -16,7 +16,7 @@ int main() {
 
 	long sum = 0;
 	for (int i = 0; i < n-1; i++) {
-		for (int j = i; j < n; j++) {
+		for (int j = i+1; j < n; j++) { // Not to count i twice
 			stringstream ss;
 			ss << a[i] << a[j]; // this is not str
 			// a[i], a[j] is 10^9.3 at most (int), so stoi(ss.str()) is 10^18.6 at most: overflow for int; long (2^63 = 10^18.9) is OK
