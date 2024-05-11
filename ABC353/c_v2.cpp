@@ -19,7 +19,8 @@ int main() {
 		// remainder is 10^8 at most
 		// 2*remainder is 10^8.3 at most, so int is OK
 		int remainder = a[i] % 100000000;
-		sum += (long)2*remainder;
+		// not 2 times: if n = 3, each a[i] is counted twice; if n = 4, each a[i] is counted 3 times
+		sum += (long)(n-1)*remainder;
 	}
 
 	cout << sum << endl;
