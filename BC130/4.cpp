@@ -30,6 +30,9 @@ public:
 						continue;
 					}
 				}
+
+				// error: without this return, compile error happens `non-void function does not return a value in all control paths`
+				return 1;
     }
 		// without static, the following fun cannot be used in `sort`.
 		// non-static member function does belong to some specific object but static member function does not belong to any object and can be called without any object.
