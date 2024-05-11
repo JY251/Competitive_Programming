@@ -1,41 +1,64 @@
 #include <bits/stdc++.h>
 using namespace std;
 class Solution {
+struct Point {
+	char tag;
+	vector<int> coordinates;
+	int dist;
+};
+
 public:
     int maxPointsInsideSquare(vector<vector<int>>& points, string s) {
-				vector<pair<char, vector<int>>> points_with_tag(s.size());
+				vector<Point> points_with_tag(s.size());
 				for (int i = 0; i < (int)s.size(); i++) {
-					points_with_tag[i] = make_pair(s[i], points[i]);
+					points_with_tag[i].tag = s[i];
+					points_with_tag[i].coordinates = points[i];
+					points_with_tag[i].dist = distance(points[i]);
 				}
-				// sort the points by distance from (0, 0) in the accending order
-				sort(points_with_tag.begin(), points_with_tag.end(), compare_points_with_dist); // sort must use lambda fun
-				// Even in the following way, the function used in the lambda must be static 
-				// e.g., if `compare_points_with_dist` is not static, then compile error happens
-				// sort(points_with_tag.begin(), points_with_tag.end(), [](pair<char, vector<int>>& p1, pair<char, vector<int>>& p2){return compare_points_with_dist(p1, p2);});
 
-				for (int  i = 0; i < (int)s.size(); i++) {
-					cout << points_with_tag[i].first << " " << points_with_tag[i].second[0] << " " << points_with_tag[i].second[1] << endl;
-				}
+				// sort the points by distance from (0, 0) in the accending order
+				sort(points_with_tag.begin(), points_with_tag.end(), [](Point& p1, Point& p2){
+					return p1.dist < p2.dist;
+				}); 
+
+				// for (int  i = 0; i < (int)s.size(); i++) {
+				// 	cout << points_with_tag[i].tag << " " << points_with_tag[i].coordinates[0] << " " << points_with_tag[i].coordinates[1] << endl;
+				// }
 
 
 				unordered_map<char, bool> already_appeared;
 				// Initialize already_appeared
 				for (int i = 0; i < (int)s.size(); i++) {
-					already_appeared[points_with_tag[i].first] = false;
+					already_appeared[points_with_tag[i].tag] = false;
 				}
 
 				int count = 0;
 
 				// search from nearest to farthest: if the points have the same tag with already-visited points, then that is the maximum square
-				for (int i = 0; i < (int)s.size(); i++) {
-					if (already_appeared[points_with_tag[i].first]) {
+				int i = 0;
+				for (i = 0; i < (int)s.size(); i++) {
+					if (already_appeared[points_with_tag[i].tag]) {
 						// int dist = abs(points_with_tag[i].second[0]) > abs(points_with_tag[i].second[0]) ? abs(points_with_tag[i].second[0]) : abs(points_with_tag[i].second[0]);
 						break;
 					} else {
-						already_appeared[points_with_tag[i].first] = true;
+						already_appeared[points_with_tag[i].tag] = true;
 						count++;
 						continue;
 					}
+				}
+
+				// the case there are two points with the same distance from (0, 0)
+				//////
+				// a 2 2
+				// b -1 -2
+				// c -3 1
+				// a 3 -3
+				// d -4 4
+				//////
+				// the above case, for loop breaks  in (3，-3) and it returns 3, but actually (-3, 1) has the same distance from (0, 0) with (3, -3) so this points should not be included in the maximum square.
+				while(points_with_tag[i].dist == points_with_tag[i-1].dist) {
+					i--;
+					count--;
 				}
 
 				return count;
@@ -47,6 +70,10 @@ public:
 			int dist1 = (abs(p1.second[0]) > abs(p1.second[1])) ? abs(p1.second[0]) : abs(p1.second[1]);
 			int dist2 = (abs(p2.second[0]) > abs(p2.second[1])) ? abs(p2.second[0]) : abs(p2.second[1]);
 			return dist1 < dist2; // sort in ascending order
+		}
+
+		static int distance(vector<int>& point) {
+			return (abs(point[0])) > (abs(point[1])) ? abs(point[0]) : abs(point[1]);
 		}
 };
 
