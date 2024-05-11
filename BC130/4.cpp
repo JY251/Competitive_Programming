@@ -38,7 +38,6 @@ public:
 				int i = 0;
 				for (i = 0; i < (int)s.size(); i++) {
 					if (already_appeared[points_with_tag[i].tag]) {
-						// int dist = abs(points_with_tag[i].second[0]) > abs(points_with_tag[i].second[0]) ? abs(points_with_tag[i].second[0]) : abs(points_with_tag[i].second[0]);
 						break;
 					} else {
 						already_appeared[points_with_tag[i].tag] = true;
@@ -65,13 +64,6 @@ public:
     }
 		// without static, the following fun cannot be used in `sort`.
 		// non-static member function does belong to some specific object but static member function does not belong to any object and can be called without any object.
-		static bool compare_points_with_dist(pair<char, vector<int>>& p1, pair<char, vector<int>>& p2) {
-			// dist(x, y) = max(abs(x), abs(y)) here: dist from (0, 0)
-			int dist1 = (abs(p1.second[0]) > abs(p1.second[1])) ? abs(p1.second[0]) : abs(p1.second[1]);
-			int dist2 = (abs(p2.second[0]) > abs(p2.second[1])) ? abs(p2.second[0]) : abs(p2.second[1]);
-			return dist1 < dist2; // sort in ascending order
-		}
-
 		static int distance(vector<int>& point) {
 			return (abs(point[0])) > (abs(point[1])) ? abs(point[0]) : abs(point[1]);
 		}
