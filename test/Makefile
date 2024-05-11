@@ -6,3 +6,5 @@ b:
 	g++ -Wall -o a.out break.cpp
 nest:
 	g++ -Wall -o a.out nest_for_break.cpp
+stoi:
+	g++ -Wall -o a.out stoi_l.cpp
