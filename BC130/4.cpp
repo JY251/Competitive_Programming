@@ -3,45 +3,36 @@ using namespace std;
 class Solution {
 public:
     int maxPointsInsideSquare(vector<vector<int>>& points, string s) {
-				// unordered_map<char, int> max_dist_per_char;
-				vector<int> dist_per_char(0);
-				// vector<int> appreared_cnt(0); // count the number of appearance of each char
+				vector<pair<char, vector<int>>> points_with_tag(s.size());
 				for (int i = 0; i < s.size(); i++) {
-					// dist(x, y) = max(abs(x), abs(y)) here: dist from (0, 0)
-					int dist = (abs(points[i][0]) > abs(points[i][1])) ? abs(points[i][0]) : abs(points[i][1]);
-					dist_per_char[i] = dist;
+					points_with_tag[i] = make_pair(s[i], points[i]);
+				}
+				// sort the points by distance from (0, 0) in the accending order
+				sort(points_with_tag.begin(), points_with_tag.end(), compare_points_with_dist);
+
+
+				unordered_map<char, bool> already_appeared;
+				// Initialize already_appeared
+				for (int i = 0; i < s.size(); i++) {
+					already_appeared[points_with_tag[i].first] = false;
 				}
 
-				// sort the points by distance from (0, 0) in the accending order
 				// search from nearest to farthest: if the points have the same tag with already-visited points, then that is the maximum square
-				vector<int> 
-
-
-        vector<int> flattened_dist = flattenArray(points);
-
-				for (int i = findMax(flattened_dist, flattened_dist.size()); i >= 0; i--) {
-
+				for (int i = 0; i < s.size(); i++) {
+					if (already_appeared[points_with_tag[i].first]) {
+						int dist = abs(points_with_tag[i].second[0]) > abs(points_with_tag[i].second[0]) ? abs(points_with_tag[i].second[0]) : abs(points_with_tag[i].second[0]);
+						return dist - 1;
+					} else {
+						already_appeared[points_with_tag[i].first] = true;
+						continue;
+					}
 				}
     }
 
-		vector<int> flattenArray(vector<vector<int>>& arr) {
-			vector<int>result;
-			for (const auto& point: arr) {
-				for (const auto& x: point) {
-					// result.push_back(x);
-					result.push_back(abs(x)); // push back abs val.
-				}
-			}
-			return result;
-		}
-
-		int findMax(vector<int> arr, int n) {
-			int max = arr[0];
-			for (int i = 1; i < n; i++) {
-				if (arr[i] > max) {
-					max = arr[i];
-				}
-			}
-			return max;
+		bool compare_points_with_dist(pair<char, vector<int>>& p1, pair<char, vector<int>>& p2) {
+			// dist(x, y) = max(abs(x), abs(y)) here: dist from (0, 0)
+			int dist1 = (abs(p1.second[0]) > abs(p1.second[1])) ? abs(p1.second[0]) : abs(p1.second[1]);
+			int dist2 = (abs(p2.second[0]) > abs(p2.second[1])) ? abs(p2.second[0]) : abs(p2.second[1]);
+			return dist1 < dist2; // sort in ascending order
 		}
 };
