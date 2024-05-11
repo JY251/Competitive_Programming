@@ -13,9 +13,9 @@ public:
 				// e.g., if `compare_points_with_dist` is not static, then compile error happens
 				// sort(points_with_tag.begin(), points_with_tag.end(), [](pair<char, vector<int>>& p1, pair<char, vector<int>>& p2){return compare_points_with_dist(p1, p2);});
 
-				// for (int  i = 0; i < (int)s.size(); i++) {
-				// 	cout << points_with_tag[i].first << " " << points_with_tag[i].second[0] << " " << points_with_tag[i].second[1] << endl;
-				// }
+				for (int  i = 0; i < (int)s.size(); i++) {
+					cout << points_with_tag[i].first << " " << points_with_tag[i].second[0] << " " << points_with_tag[i].second[1] << endl;
+				}
 
 
 				unordered_map<char, bool> already_appeared;
@@ -52,8 +52,9 @@ public:
 
 int main() {
 	Solution solution;
-	vector<vector<int>> points = {{-1,-4}, {16,-8},{13,-3},{-12,0}};
-	string s = "abda";
+	vector<vector<int>> points = {{2,2},{-1,-2},{-4,4},{-3,1},{3,-3}};
+;
+	string s = "abdca";
 	cout << solution.maxPointsInsideSquare(points, s) << endl;
 	return 0;
 }
