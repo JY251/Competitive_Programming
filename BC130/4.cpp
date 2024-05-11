@@ -71,9 +71,8 @@ public:
 
 int main() {
 	Solution solution;
-	vector<vector<int>> points = {{2,2},{-1,-2},{-4,4},{-3,1},{3,-3}};
-;
-	string s = "abdca";
+	vector<vector<int>> points = {{1,1},{-1,-1},{2,-2}};
+	string s = "ccd";
 	cout << solution.maxPointsInsideSquare(points, s) << endl;
 	return 0;
 }
