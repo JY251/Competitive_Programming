@@ -9,7 +9,9 @@ public:
 				}
 				// sort the points by distance from (0, 0) in the accending order
 				sort(points_with_tag.begin(), points_with_tag.end(), compare_points_with_dist); // sort must use lambda fun
-				// sort(points_with_tag.begin(), points_with_tag.end(), [this](pair<char, vector<int>>& p1, pair<char, vector<int>>& p2){return compare_points_with_dist(p1, p2);});
+				// Even in the following way, the function used in the lambda must be static 
+				// e.g., if `compare_points_with_dist` is not static, then compile error happens
+				// sort(points_with_tag.begin(), points_with_tag.end(), [](pair<char, vector<int>>& p1, pair<char, vector<int>>& p2){return compare_points_with_dist(p1, p2);});
 
 
 				unordered_map<char, bool> already_appeared;
