@@ -43,3 +43,11 @@ public:
 			return dist1 < dist2; // sort in ascending order
 		}
 };
+
+int main() {
+	Solution solution;
+	vector<vector<int>> points = {{-1,-4}, {16,-8},{13,-3},{-12,0}};
+	string s = "abda";
+	cout << solution.maxPointsInsideSquare(points, s) << endl;
+	return 0;
+}
