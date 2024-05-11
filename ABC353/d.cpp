@@ -21,11 +21,11 @@ int main() {
 			ss << a[i] << a[j]; // this is not str
 			// a[i], a[j] is 10^9.3 at most (int), so stoi(ss.str()) is 10^18.6 at most: overflow for int; long (2^63 = 10^18.9) is OK
 			// no function like stol?
-			sum += stol(ss.str());
+			sum += stol(ss.str()) % 998244353;
 		}
 	}
 
-	cout << sum << endl;
+	cout << sum % 998244353 << endl; // not to forget calc remainder
 
 
 	return 0;
