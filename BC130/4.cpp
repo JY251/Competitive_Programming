@@ -13,6 +13,10 @@ public:
 				// e.g., if `compare_points_with_dist` is not static, then compile error happens
 				// sort(points_with_tag.begin(), points_with_tag.end(), [](pair<char, vector<int>>& p1, pair<char, vector<int>>& p2){return compare_points_with_dist(p1, p2);});
 
+				// for (int  i = 0; i < (int)s.size(); i++) {
+				// 	cout << points_with_tag[i].first << " " << points_with_tag[i].second[0] << " " << points_with_tag[i].second[1] << endl;
+				// }
+
 
 				unordered_map<char, bool> already_appeared;
 				// Initialize already_appeared
@@ -20,19 +24,21 @@ public:
 					already_appeared[points_with_tag[i].first] = false;
 				}
 
+				int count = 0;
+
 				// search from nearest to farthest: if the points have the same tag with already-visited points, then that is the maximum square
 				for (int i = 0; i < (int)s.size(); i++) {
 					if (already_appeared[points_with_tag[i].first]) {
-						int dist = abs(points_with_tag[i].second[0]) > abs(points_with_tag[i].second[0]) ? abs(points_with_tag[i].second[0]) : abs(points_with_tag[i].second[0]);
-						return dist - 1;
+						// int dist = abs(points_with_tag[i].second[0]) > abs(points_with_tag[i].second[0]) ? abs(points_with_tag[i].second[0]) : abs(points_with_tag[i].second[0]);
+						break;
 					} else {
 						already_appeared[points_with_tag[i].first] = true;
+						count++;
 						continue;
 					}
 				}
 
-				// error: without this return, compile error happens `non-void function does not return a value in all control paths`
-				return 1;
+				return count;
     }
 		// without static, the following fun cannot be used in `sort`.
 		// non-static member function does belong to some specific object but static member function does not belong to any object and can be called without any object.
