@@ -14,6 +14,7 @@ int main() {
 	}
 	
 	long sum = 0;
+	// This is wrong since the answer is not the remainder of the sum but the sum of the remainders
 	for (int i = 0; i < n; i++) {
 		// remainder is 10^8 at most
 		// 2*remainder is 10^8.3 at most, so int is OK
