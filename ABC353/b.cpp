@@ -26,6 +26,10 @@ int main() {
 			// cout << "current_in: " << current_in << endl;
 		}
 	}
+	// not to forget because there are some people in the attraction but start is not executed.
+	if (current_in > 0) {
+		count++;
+	}
 
 	cout << count << endl;
 	return 0;
