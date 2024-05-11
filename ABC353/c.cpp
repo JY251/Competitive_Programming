@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// AC 5/22
 int main() {
 	int n; // 2^32 = 10^9.6; 2^31 = 10^9.3
 	cin >> n;
