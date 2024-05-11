@@ -8,7 +8,7 @@ int main() {
 	int n; // 2^32 = 10^9.6; 2^31 = 10^9.3
 	cin >> n;
 
-	vector<int> a(n);
+	vector<long> a(n);
 	for (int i = 0; i < n; i++) {
 		cin >> a[i];
 	}
@@ -21,7 +21,7 @@ int main() {
 		for (int j = i+1; j < n+1; j++) {
 			// i, j is 1-indexed above, but A is 0-indexed.
 			// A_1 (1-indexed) = A_0 (0-indexed)
-			sum += (long)(a[i-1] + a[j-1]) % 100000000; // a[i-1], a[j-1] is 10^8 at mose; int is 2^31 = 10^9.3, so no overflow
+			sum += (a[i-1]% 100000000 + a[j-1]% 100000000) % 100000000; // a[i-1], a[j-1] is 10^8 at mose; int is 2^31 = 10^9.3, so no overflow
 		}
 	}
 
