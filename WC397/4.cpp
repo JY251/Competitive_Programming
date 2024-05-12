@@ -11,11 +11,12 @@ public:
 					// each case: start from i
 					int current_pos = i;
 					int total_energy = energy[current_pos];
-					cout << "line 15: OK" << endl; // debug
+					// cout << "line 15: OK" << endl; // debug
+					current_pos += k;
 					// Not to use i in the following: i is the iterator of the outer loop so it should not be changed in the inner loop
 					// since i+k is not updated (you updates current_pos instead of i), this cause infinite while loop
-					while(i+k < (int)energy.size()) {
-						cout << "line 17: OK" << endl; // debug
+					while(current_pos < (int)energy.size()) {
+						// cout << "line 17: OK" << endl; // debug
 						current_pos += k;
 						total_energy += energy[current_pos];
 					}
