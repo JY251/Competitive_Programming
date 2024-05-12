@@ -20,3 +20,11 @@ public:
 				return max_total_energy;
     }
 };
+
+int main() {
+	vector<int> energy = {-2, -3, -1};
+	int k = 2;
+	Solution sol;
+	cout << sol.maximumEnergy(energy, k) << endl;
+	return 0;
+}
