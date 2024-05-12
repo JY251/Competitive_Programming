@@ -9,11 +9,14 @@ public:
 				int max_total_energy;
 				for (int i = 0; i < (int)energy.size(); i++) {
 					// each case: start from i
-					int total_energy = energy[i];
+					int current_pos = i;
+					int total_energy = energy[current_pos];
+					// Not to use i in the following: i is the iterator of the outer loop so it should not be changed in the inner loop
 					while(i+k < (int)energy.size()) {
-						total_energy += energy[i+k];
-						i += k;
+						current_pos += k;
+						total_energy += energy[current_pos];
 					}
+					// cout << "total_energy: " << total_energy << "(i: " << i << ")" << endl; // debug
 
 					if (i == 0) {
 						max_total_energy = total_energy;
@@ -28,8 +31,8 @@ public:
 };
 
 int main() {
-	vector<int> energy = {-2, -3, -1};
-	int k = 2;
+	vector<int> energy = {5, 2, -10, -5, 1};
+	int k = 3;
 	Solution sol;
 	cout << sol.maximumEnergy(energy, k) << endl;
 	return 0;
