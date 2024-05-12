@@ -16,11 +16,13 @@ public:
 					// Not to use i in the following: i is the iterator of the outer loop so it should not be changed in the inner loop
 					// since i+k is not updated (you updates current_pos instead of i), this cause infinite while loop
 					while(current_pos < (int)energy.size()) {
+						// cout << "\t" << current_pos << " " << energy[current_pos] << endl; // debug
 						// cout << "line 17: OK" << endl; // debug
-						current_pos += k;
+						// Not to make the following two lines vice versa: need to sum up the energy first before updating the current_pos
 						total_energy += energy[current_pos];
+						current_pos += k;
 					}
-					cout << "total_energy: " << total_energy << "(i: " << i << ")" << endl; // debug
+					// cout << "total_energy: " << total_energy << "(i: " << i << ")" << endl; // debug
 
 					if (i == 0) {
 						max_total_energy = total_energy;
