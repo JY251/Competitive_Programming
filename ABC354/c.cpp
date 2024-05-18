@@ -10,7 +10,7 @@ int main() {
 
 	// vector<int> a(n);
 	// vector<int> c(n);
-	vector<vector<int>> p(n);
+	vector<vector<int>> p(n, vector<int>(3));
 
 	for (int i=0; i<n; i++) {
 		// cin >> a[i] >> c[i];
