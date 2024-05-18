@@ -12,9 +12,9 @@ int main() {
 			int new_i = i % 4;
 			int new_j = j % 2;
 
-			switch(a) {
+			switch(new_i) {
 				case 0:
-					switch(b) {
+					switch(new_j) {
 						case 0:
 							area_2+=1*2;
 							break;
@@ -24,7 +24,7 @@ int main() {
 					}
 					break;
 				case 1:
-					switch(b) {
+					switch(new_j) {
 						case 0:
 							area_2+=(int)(0.5*2);
 							break;
@@ -34,7 +34,7 @@ int main() {
 					}
 					break;
 				case 2:
-					switch(b) {
+					switch(new_j) {
 						case 0:
 							break;
 						case 1:
@@ -43,7 +43,7 @@ int main() {
 					}
 					break;
 				case 3:
-					switch(b) {
+					switch(new_j) {
 						case 0:
 							area_2+=(int)(0.5*2);
 							break;
