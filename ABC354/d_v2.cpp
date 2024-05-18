@@ -8,7 +8,7 @@ int main() {
 	// Each 4x2 rectangles have 4 area => 4*2 = 8
 	// there are `((c-a)/4) * ((d-b)/2)` number of 4x2 rectangles
 	int area_2 = 8 * ((c-a)/4) * ((d-b)/2);
-	cout << "4x2: " << area_2 << endl;
+	// cout << "4x2: " << area_2 << endl;
 
 	// There are some 1x2 rectangles left in the left/right side of the 4x2 rectangles
 	for (int j=(b%2==0)?b:b+1; j+2<c; j+=2) {
@@ -17,7 +17,7 @@ int main() {
 			// in C++, -10 % 4 = -2, so you need to add 4 to get the positive remainder (So does %2)
 			if (new_i < 0) new_i += 4;
 
-			cout << i << " " << j << " (" << new_i << " " << j << "): " << area_2 << endl;
+			// cout << i << " " << j << " (" << new_i << " " << j << "): " << area_2 << endl;
 
 			switch(new_i) {
 				case 0:
@@ -35,7 +35,7 @@ int main() {
 			}
 		} 
 	}
-	cout << "2x2: " << area_2 << endl;
+	// cout << "2x2: " << area_2 << endl;
 
 
 	// There are still 1 row left in either top or bottom of the filled 4x2 rectangles and 1x2 rectangles
