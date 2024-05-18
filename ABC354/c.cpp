@@ -32,5 +32,7 @@ int main() {
 		}
 	}
 
+	cout << p.size() << endl;
+
 	return 0;
 }
