@@ -22,12 +22,12 @@ int main() {
 	});
 
 	for (int i=0; i<n; i++) {
-		if (i >= p.size()) {break;}
+		if (i >= (int)p.size()) {break;}
 		for (int j=i+1; j<n; j++) {
-			if (j >= p.size()) {break;}
+			if (j >= (int)p.size()) {break;}
 			// since i < j，p[i].first < p[j].first
 			if (p[i].second > p[j].second) {
-				p.erase(i);
+				p.erase(p.begin()+i); // erase takes `pointer to the element` as argument
 			}
 		}
 	}
