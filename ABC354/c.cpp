@@ -27,8 +27,15 @@ int main() {
 		for (int j=i+1; j<n; j++) {
 			if (j >= (int)p.size()) {break;}
 			// since i < j，p[i].first < p[j].first
+			// cout << i << " " << j << endl;
 			if (p[i][2] > p[j][2]) {
 				p.erase(p.begin()+i); // erase takes `pointer to the element` as argument
+				// since a element is erased, the index should be decreased
+				// e.g., if i=0 then p[0] is erased. What you want to search next is p[0] (originally p[1]) but not p[1] (originally p[2])
+				// without this line, the next element to be searched is p[1] (originally p[2]) which is wrong
+				i--;
+
+				break;
 			}
 		}
 	}
