@@ -12,6 +12,12 @@ int main() {
 			int new_i = i % 4;
 			int new_j = j % 2;
 
+			// in C++, -10 % 4 = -2, so you need to add 4 to get the positive remainder (So does %2)
+			if (new_i < 0) new_i += 4;
+			if (new_j < 0) new_j += 2;
+
+			// cout << i << " " << j << " (" << new_i << " " << new_j << "): " << area_2 << endl;
+
 			switch(new_i) {
 				case 0:
 					switch(new_j) {
