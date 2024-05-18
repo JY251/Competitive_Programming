@@ -5,10 +5,35 @@ int main() {
 	int a, b, c, d;
 	cin >> a >> b >> c >> d;
 
-	int area_2 = 0;
+	// Each 4x2 rectangles have 4 area => 4*2 = 8
+	// there are `((c-a)/4) * ((d-b)/2)` number of 4x2 rectangles
+	int area_2 = 8 * ((c-a)/4) * ((d-b)/2);
 
-	for (int i=a; i<c; i++) {
-		for (int j=b; j<d; j++) {
+	// There are some 1x2 rectangles left in the left/right side of the 4x2 rectangles
+	for (int j=(b%2)?b:b+1; j<c; j+=2) {
+		for (int i=a; i<a+(c-a)%4; i++) {
+			int new_i = i % 4;
+			// in C++, -10 % 4 = -2, so you need to add 4 to get the positive remainder (So does %2)
+			if (new_i < 0) new_i += 4;
+
+			switch(new_i) {
+				case 0:
+					area_2+=3;
+					break;
+				case 1:
+					area_2+=3;
+				case 2:
+					area_2+=1;
+				case 3:
+					area_2+=1;
+			}
+		} 
+	}
+
+	// There are still 1 row left in either top or bottom of the filled 4x2 rectangles and 1x2 rectangles
+	if ((d-b)%2!=0) {
+		for (int i=a; i<c; i++) {
+			int j = (b%2)?d:b;
 			int new_i = i % 4;
 			int new_j = j % 2;
 
