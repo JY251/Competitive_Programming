@@ -11,7 +11,7 @@ int main() {
 	// cout << "4x2: " << area_2 << endl;
 
 	// There are some 1x2 rectangles left in the left/right side of the 4x2 rectangles
-	for (int j=(b%2==0)?b:b+1; j+2<c; j+=2) {
+	for (int j=(b%2==0)?b:b+1; j+2<d; j+=2) {
 		for (int i=a; i<a+(c-a)%4; i++) {
 			int new_i = i % 4;
 			// in C++, -10 % 4 = -2, so you need to add 4 to get the positive remainder (So does %2)
@@ -33,6 +33,7 @@ int main() {
 					area_2+=1;
 					break;
 			}
+			// cout << j << j+2 << "(j): " << endl;
 		} 
 	}
 	// cout << "2x2: " << area_2 << endl;
