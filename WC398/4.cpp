@@ -16,7 +16,10 @@ public:
 					vector<int> subArray = vector<int>(nums.begin() + queries[i][0], nums.begin() + queries[i][1] + 1);
 					for (int j = 0; j < (int)indices_cannot_over.size(); j++) {
 						if (queries[i][0] != queries[i][1]) {
-							if (queries[i][0] <= indices_cannot_over[j] && indices_cannot_over[j] <= queries[i][1]) {
+							// 1 2 3 1 1 3 (indices_cannot_over = 3)
+							// [3 4]: false
+							// [2 3]: true
+							if (queries[i][0] <= indices_cannot_over[j] && indices_cannot_over[j] < queries[i][1]) {
 								res[i] = false;
 							}
 						}
@@ -42,8 +45,8 @@ public:
 
 int main() {
 	Solution sol;
-	vector<int> nums = {3, 4, 1, 2, 6};
-	vector<vector<int>> queries = {{0, 4}};
+	vector<int> nums = {3, 6, 2, 1};
+	vector<vector<int>> queries = {{0, 1}};
 	vector<bool> res = sol.isArraySpecial(nums, queries);
 
 	for (int i = 0; i < (int)res.size(); i++) {
