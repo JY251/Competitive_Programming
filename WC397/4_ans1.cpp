@@ -1,4 +1,5 @@
 // 3147. Taking Maximum Energy From the Mystic Dungeon
+// Copied of the following solution:
 // https://leetcode.com/problems/taking-maximum-energy-from-the-mystic-dungeon/solutions/5145835/the-best-explanation-beats-100-users
 #include <bits/stdc++.h>
 using namespace std;
