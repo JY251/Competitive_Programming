@@ -7,14 +7,20 @@ public:
     vector<bool> isArraySpecial(vector<int>& nums, vector<vector<int>>& queries) {
 				vector<bool> res((int)queries.size());
 				vector<int> indices_cannot_over = isArraySpecial_1(nums);
+				// for (int i = 0; i < (int)indices_cannot_over.size(); i++) {
+				// 	cout << indices_cannot_over[i] << " ";
+				// }
+				// cout << endl;
         for (int i = 0; i < (int)queries.size(); i++) {
+					res[i] = true;
 					vector<int> subArray = vector<int>(nums.begin() + queries[i][0], nums.begin() + queries[i][1] + 1);
 					for (int j = 0; j < (int)indices_cannot_over.size(); j++) {
-						if (queries[i][1] <= indices_cannot_over[j] && indices_cannot_over[j] <= queries[i][1]) {
-							res[i] = false;
+						if (queries[i][0] != queries[i][1]) {
+							if (queries[i][0] <= indices_cannot_over[j] && indices_cannot_over[j] <= queries[i][1]) {
+								res[i] = false;
+							}
 						}
 					}
-					res[i] = true;
 				}
 				return res;
     }
