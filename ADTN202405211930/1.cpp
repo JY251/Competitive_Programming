@@ -31,6 +31,10 @@ int main() {
 	// .##
 	// .#.
 
+	// Improved Algorithm1:
+	// the above case, see the row direction: 1, 1, 1 and 2, 0, 1 => if some of them are the same OK? 2-0 can be converted to 1-1 by shifting the column direction
+
+	// Implementation of Algorithm1:
 	// Count the number of # and . in the each row of a and of b
 	vector<int> num_sharp_row_a(w, 0);
 	vector<int> num_sharp_row_b(w, 0);
