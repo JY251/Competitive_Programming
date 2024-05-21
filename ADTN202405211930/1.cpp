@@ -42,13 +42,13 @@ int main() {
 		// int num_sharp_first_row_a = 0;
 		// int num_dot_first_row_a = 0;
 		for (int j=0; j<w; j++) {
-			if (a[i][j] == '#') num_sharp_row_a[j]++;
+			if (a[i][j] == '#') num_sharp_row_a[i]++;
 		}
 	}
 
 	for (int i=0; i<h; i++) {
 		for (int j=0; j<w; j++) {
-			if (b[i][j] == '#') num_sharp_row_b[j]++;
+			if (b[i][j] == '#') num_sharp_row_b[i]++;
 		}
 	}
 
@@ -57,19 +57,19 @@ int main() {
 	vector<int> num_sharp_column_b(h, 0);
 	for (int j=0; j<w; j++) {
 		for (int i=0; i<h; i++) {
-			if (a[i][j] == '#') num_sharp_column_a[i]++;
+			if (a[i][j] == '#') num_sharp_column_a[j]++;
 		}
 	}
 	for (int j=0; j<w; j++) {
 		for (int i=0; i<h; i++) {
-			if (b[i][j] == '#') num_sharp_column_b[i]++;
+			if (b[i][j] == '#') num_sharp_column_b[j]++;
 		}
 	}
 
 	// Shift of the row direction: let the first row of a has `num_sharp_first_row_a`, shift b in row direction so that the first row of b has `num_sharp_first_row_a` #s.
 	for (int s=0; s<h; s++) {
-		// cout << "s: " << s << endl;
 		if (num_sharp_row_b[s] == num_sharp_row_a[0]) {
+			// cout << "s: " << s << endl;
 			// check if other rows of a and b has the same number of #s and .s
 			int is_num_sharp_row_same = true; // if there are any rows that are not the same, is_num_sharp_row_same will be false
 			for (int i=1; i<h; i++) {
@@ -81,8 +81,10 @@ int main() {
 				// }
 			}
 			// if not the same continue (go to the next s)
-			if (is_num_sharp_row_same == false) continue;
-			// cout << "s: " << s << endl;
+			if (is_num_sharp_row_same == false) {
+				// cout << "s: " << s << endl;
+				continue;
+			}
 
 			// if the same continue to check the column direction
 			// Shift of the column direction: let the first column of a has `num_sharp_first_column_a`, shift b in column direction so that the first column of b has `num_sharp_first_column_a` #s.
@@ -95,8 +97,10 @@ int main() {
 						if (num_sharp_column_a[j] != num_sharp_column_b[(j+t)%w]) is_num_sharp_column_same = false;
 					}
 					// if not the same continue (go to the next t)
-					if (is_num_sharp_column_same == false) continue;
-					// cout << "t: " << t << endl;
+					if (is_num_sharp_column_same == false) {
+						// cout << "t: " << t << endl;
+						continue;
+					}
 
 					// if the same, check each element of a and b
 					int is_match = true; // if there are any elements that are not the same, is_match will be false
