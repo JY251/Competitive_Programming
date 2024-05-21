@@ -68,15 +68,21 @@ int main() {
 
 	// Shift of the row direction: let the first row of a has `num_sharp_first_row_a`, shift b in row direction so that the first row of b has `num_sharp_first_row_a` #s.
 	for (int s=0; s<h; s++) {
+		// cout << "s: " << s << endl;
 		if (num_sharp_row_b[s] == num_sharp_row_a[0]) {
 			// check if other rows of a and b has the same number of #s and .s
 			int is_num_sharp_row_same = true; // if there are any rows that are not the same, is_num_sharp_row_same will be false
 			for (int i=1; i<h; i++) {
 				// b[0] will be b[s]; b[1] will be b[s+1]; ... ; b[h-1] will be b[(s+h-1)%h]
 				if (num_sharp_row_a[i] != num_sharp_row_b[(i+s)%h]) is_num_sharp_row_same = false;
+				// if (num_sharp_row_a[i] != num_sharp_row_b[(i+s)%h]) {
+				// 	cout << "s: " << s << " failed because of the following: " << endl;
+				// 	cout << "i: " << i << " " << num_sharp_row_a[i] << " " << num_sharp_row_b[(i+s)%h] << endl;
+				// }
 			}
-			// if not the same break
-			if (is_num_sharp_row_same == false) break;
+			// if not the same continue (go to the next s)
+			if (is_num_sharp_row_same == false) continue;
+			// cout << "s: " << s << endl;
 
 			// if the same continue to check the column direction
 			// Shift of the column direction: let the first column of a has `num_sharp_first_column_a`, shift b in column direction so that the first column of b has `num_sharp_first_column_a` #s.
@@ -88,8 +94,9 @@ int main() {
 						// b[0] will be b[s]; b[1] will be b[s+1]; ... ; b[h-1] will be b[(s+h-1)%h]
 						if (num_sharp_column_a[j] != num_sharp_column_b[(j+t)%w]) is_num_sharp_column_same = false;
 					}
-					// if not the same break
-					if (is_num_sharp_column_same == false) break;
+					// if not the same continue (go to the next t)
+					if (is_num_sharp_column_same == false) continue;
+					// cout << "t: " << t << endl;
 
 					// if the same, check each element of a and b
 					int is_match = true; // if there are any elements that are not the same, is_match will be false
