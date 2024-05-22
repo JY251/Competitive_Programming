@@ -10,3 +10,5 @@ stoi:
 	g++ -Wall -o a.out stoi_l.cpp
 neg_rem:
 	g++ -Wall -o a.out neg_remainder.cpp
+unordered:
+	g++ -Wall -o a.out unordered_map.cpp
