@@ -20,6 +20,8 @@ int main() {
 		}
 	 }
 
+	 cout << "OK" << endl;
+
 	// Algorithm1: 
 	// assume that the number of # and . in either line of a and either line of b are the same; so does the number of # and . in either column of a and either column of b
 	// by the above, we can make "match" each corresponding column and row of a and b
