@@ -1,3 +1,5 @@
+// Copied the following solution:
+// https://atcoder.jp/contests/abc353/editorial/9957
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
