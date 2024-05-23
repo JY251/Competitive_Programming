@@ -1,3 +1,4 @@
+// Copied the solution on the AtCoder contest page.
 #include <bits/stdc++.h>
 
 using namespace std;

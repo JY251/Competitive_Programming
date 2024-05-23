@@ -1,3 +1,5 @@
+// copied the following solution:
+// https://atcoder.jp/contests/adt_medium_20240521_3/editorial/6281
 #include <bits/stdc++.h>
 using namespace std;
 
