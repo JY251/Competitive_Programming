@@ -18,3 +18,6 @@ This is a repository for code for competitive programming such as AtCoder and Le
 
 ### Others
 - Directory named `test` is used for testing simple grammars and functions of C++.
+
+### Answer files
+- Code named `***_ans.cpp` or `***_ans*.cpp` are the copy of the answer code shared by the contest participants as Solution (for LeetCode) or official page of the contest (for AtCoder).

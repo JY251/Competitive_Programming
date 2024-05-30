@@ -1,3 +1,5 @@
+// Copied the following solution:
+// https://atcoder.jp/contests/abc353/editorial/9958
 #include <bits/stdc++.h>
 #include "atcoder/modint"
 
