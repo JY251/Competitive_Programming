@@ -1,3 +1,4 @@
+// Problem: https://atcoder.jp/contests/adt_medium_20240530_3/tasks/abc248_b
 #include <iostream>
 // #include <cmath>
 using namespace std;
