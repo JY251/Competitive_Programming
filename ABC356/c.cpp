@@ -37,6 +37,7 @@ vector<vector<int>> all_combinations(int n, int k) {
 	return res;
 }
 
+//// if b is included in a
 bool is_included(vector<int> a, vector<int> b) {
 	bool is_included = true;
 	// for all items in b
@@ -80,10 +81,14 @@ int main() {
 
 
 	int count = 0;
+	vector<vector<int>> combs = all_combinations(n, k);
 	// for loop for all the possible combinations: n C k
-		// is_valid = true;
+	for (auto& comb: combs) {
+		bool is_valid = true; // if contradiction with the test cases is found, then is_valid = false
 		// for loop for all the test cases
-			// if the combination of k keys is included in the test case
+		for (int i=1; i<=m; i++) {
+			// if the combination of k keys is included in the test case: if comb is included in a[i]
+			if (is_included(a[i], comb)) {
 				// OPT: if the case is completely the same as the combination, and then the test case is OK
 					// count++;
 					// break the for loop
@@ -92,9 +97,12 @@ int main() {
 				// if test case is `x`, then the test case is NG: 
 					// is_valid = false;
 					// break the for loop (of test cases)
-		// if (is_valid) 
-			// count++; (since no contradiction is found)
-	
+			}
+		}
+		if (is_valid) {
+			count++; // since no contradiction is found
+		}
+	}
 	cout << count << endl;
 
 	return 0;
