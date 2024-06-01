@@ -9,7 +9,6 @@ vector<vector<int>> all_combinations(int n, int k) {
 	assert(k >= 1);
 	// assert n >= k -> Since k>=1, n>=1
 	assert(n >= k);
-	cout << "Asserts are OK" << endl; // "Asserts are OK
 
 	// n C k = (n-1) C (k-1) + (n-1) C k (if n >= 1 and k >= 1)
 	// case n = 1: if n=1, since n>=k, k=1 follows, so no recursion is needed
@@ -19,7 +18,18 @@ vector<vector<int>> all_combinations(int n, int k) {
 			vector<int> comb(1, i+1);
 			res.push_back(comb);
 		}
+		return res;
 	}
+	// case n = k: if recursive, then n-1 C k = k-1 C k will be calculated, which returns a error
+	if (n == k) {
+		vector<int> comb(k);
+		for (int i=0; i<k; i++) {
+			comb[i] = i+1; // i is 0-indexed but the elements are 1-indexed
+		}
+		res.push_back(comb);
+		return res;
+	}
+
 	//// recursive case
 	else {
 		// (n-1) C (k-1)
