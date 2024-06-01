@@ -97,7 +97,7 @@ int main() {
 	for (auto& comb: combs) {
 		bool is_valid = true; // if contradiction with the test cases is found, then is_valid = false
 		// for loop for all the test cases
-		for (int i=1; i<=m; i++) {
+		for (int i=0; i<m; i++) {
 			// if the combination of k keys is included in the test case: if comb is included in a[i]
 			if (is_included(a[i], comb)) {
 				// OPT: if the case is completely the same as the combination: i.e., the len of a[i] == len of comb
