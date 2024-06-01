@@ -31,8 +31,20 @@ vector<vector<int>> all_combinations(int n, int k) {
 	return res;
 }
 
-int is_included(vector<int> a, vector<int> b) {
-
+bool is_included(vector<int> a, vector<int> b) {
+	bool is_included = true;
+	// for all items in b
+		// bool is_element_included = false;
+		// for all items in a
+			// if b[i] == a[j]
+				// is_element_included = true
+				// break (the for loop of a)
+			// else
+				// continue
+		// if is_element_included == false
+			// return false
+		// else
+			// continue
 }
 
 int main() {
