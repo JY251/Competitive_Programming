@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-	int a, b, k;
+	long a, b, k;
 	cin >> a >> b >> k;
 
 	// a * k ** ans = b
@@ -12,7 +12,7 @@ int main() {
 	// int ans;
 	// ans = clog(b/a)
 
-	int curr = a;
+	long curr = a;
 	int count = 0;
 	while (curr < b) {
 		curr *= k;
