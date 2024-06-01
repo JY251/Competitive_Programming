@@ -1,7 +1,7 @@
 # README
 <!-- [![wakatime](https://wakatime.com/badge/user/018efdf7-9ea9-4d2d-8db3-40252bbf5ff8/project/4bc722d4-745c-4e93-8a8c-6d3ba4fbaa91.svg)](https://wakatime.com/badge/user/018efdf7-9ea9-4d2d-8db3-40252bbf5ff8/project/4bc722d4-745c-4e93-8a8c-6d3ba4fbaa91) -->
 [![wakatime](https://wakatime.com/badge/user/018efdf7-9ea9-4d2d-8db3-40252bbf5ff8/project/4bc722d4-745c-4e93-8a8c-6d3ba4fbaa91.svg)](https://wakatime.com/@018efdf7-9ea9-4d2d-8db3-40252bbf5ff8/projects/vlwkowslwk?start=2024-05-13&end=2024-05-19)
-
+[![wakatime](https://wakatime.com/badge/user/018efdf7-9ea9-4d2d-8db3-40252bbf5ff8/project/74377cea-b0f0-4f7d-b6b0-3f90e3947dfc.svg)](https://wakatime.com/badge/user/018efdf7-9ea9-4d2d-8db3-40252bbf5ff8/project/74377cea-b0f0-4f7d-b6b0-3f90e3947dfc)
 
 This is a repository for code for competitive programming such as AtCoder and LeetCode.
 
