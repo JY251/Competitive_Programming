@@ -9,6 +9,7 @@ vector<vector<int>> all_combinations(int n, int k) {
 	assert(k >= 1);
 	// assert n >= k -> Since k>=1, n>=1
 	assert(n >= k);
+	cout << "Asserts are OK" << endl; // "Asserts are OK
 
 	// n C k = (n-1) C (k-1) + (n-1) C k (if n >= 1 and k >= 1)
 	// case n = 1: if n=1, since n>=k, k=1 follows, so no recursion is needed
@@ -75,8 +76,8 @@ int main() {
 		for (int j=1; j<= c[i]; j++) {
 			cin >> a_row[j-1]; // a_row is 0-indexed
 		}
-		a[i] = a_row;
-		cin >> r[i];
+		a[i-1] = a_row; // a is 0-indexed
+		cin >> r[i-1]; // r is 0-indexed
 	}
 
 
