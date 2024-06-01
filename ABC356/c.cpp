@@ -39,7 +39,6 @@ vector<vector<int>> all_combinations(int n, int k) {
 
 //// if b is included in a
 bool is_included(vector<int> a, vector<int> b) {
-	bool is_included = true;
 	// for all items in b
 	for (int i=0; i<(int)b.size(); i++) {
 		bool is_element_included = false;
@@ -58,6 +57,7 @@ bool is_included(vector<int> a, vector<int> b) {
 			continue; // continue to check if the next element in b is included in a
 		}
 	}
+	return true;
 }
 
 int main() {
