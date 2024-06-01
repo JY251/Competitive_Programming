@@ -89,14 +89,15 @@ int main() {
 		for (int i=1; i<=m; i++) {
 			// if the combination of k keys is included in the test case: if comb is included in a[i]
 			if (is_included(a[i], comb)) {
-				// OPT: if the case is completely the same as the combination, and then the test case is OK
-					// count++;
-					// break the for loop
-				// if test case is `o`, then the test case is OK: 
-					// do nothing (continue)
-				// if test case is `x`, then the test case is NG: 
-					// is_valid = false;
-					// break the for loop (of test cases)
+				// OPT: if the case is completely the same as the combination: i.e., the len of a[i] == len of comb
+					// the test case is OK
+						// break the for loop
+					// else
+						// the combination is confirmed that not working => break the for loop of combinations
+						// is_valid = false
+						// break the for loop
+				// if not the same (i.e., test case is longer than the combination, we can't confirm is the combination is working or not 
+					// for both the test case is `o` and `x` (TMP)					
 			}
 		}
 		if (is_valid) {
