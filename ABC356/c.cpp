@@ -1,6 +1,40 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// create the vecotr of all the combinations of n C k
+vector<vector<int>> all_combinations(int n, int k) {
+	vector<vector<int>> res(0);
+
+	// assert k >= 1
+	// assert n >= k -> Since k>=1, n>=1
+
+	// n C k = (n-1) C (k-1) + (n-1) C k (if n >= 1 and k >= 1)
+	// case n = 1: if n=1, since n>=k, k=1 follows, so no recursion is needed
+	// case k = 1:
+		for (int i=0; i<n; i++) {
+			vector<int> comb(1, i+1);
+			res.push_back(comb);
+		}
+	//// recursive case
+	// (n-1) C (k-1)
+	vector<vector<int>> combs1 = all_combinations(n-1, k-1);
+	for (auto& comb: combs1) {
+		comb.push_back(n);
+		res.push_back(comb);
+	}
+
+	// (n-1) C k
+	vector<vector<int>> combs2 = all_combinations(n-1, k);
+	for (auto& comb: combs2) {
+		res.push_back(comb);
+	}
+	return res;
+}
+
+int is_included(vector<int> a, vector<int> b) {
+
+}
+
 int main() {
 	int n, m, k; // int is OK
 	// n: number of keys; m: number of test cases; k: number of keys required to open the door
@@ -21,7 +55,7 @@ int main() {
 	}
 
 
-	// count = 0;
+	int count = 0;
 	// for loop for all the possible combinations: n C k
 		// is_valid = true;
 		// for loop for all the test cases
