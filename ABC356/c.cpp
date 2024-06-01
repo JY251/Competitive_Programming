@@ -90,18 +90,26 @@ int main() {
 			// if the combination of k keys is included in the test case: if comb is included in a[i]
 			if (is_included(a[i], comb)) {
 				// OPT: if the case is completely the same as the combination: i.e., the len of a[i] == len of comb
-					// the test case is OK
-						// break the for loop
-					// else
+				if (a[i].size() == comb.size()) {
+					if (r[i] == 'o') {
+						// the test case is OK
+						continue; // continue to the next test case (No contradiction is found with current test case)
+					} else {
 						// the combination is confirmed that not working => break the for loop of combinations
-						// is_valid = false
-						// break the for loop
-				// if not the same (i.e., test case is longer than the combination, we can't confirm is the combination is working or not 
-					// for both the test case is `o` and `x` (TMP)					
+						is_valid = false;
+						// break the for loop of test cases (Since one contradiction is found, no need to check the rest of the test cases)
+						// since the combination is found not working
+						break; 
+					}
+				} else {
+					// if not the same (i.e., test case is longer than the combination, we can't confirm is the combination is working or not 
+						// for both the test case is `o` and `x` (TMP)					
+					continue; // No info is obtained; continue to the next test case					
+				}
 			}
 		}
-		if (is_valid) {
-			count++; // since no contradiction is found
+		if (is_valid) { // if no contradiction is found with all the test cases
+			count++;
 		}
 	}
 	cout << count << endl;
