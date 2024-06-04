@@ -26,28 +26,17 @@ int main() {
 
 	// N loop
 	for (int i=0; i<n; i++) {
-		cout << "Iteration: " << i << " " <<	list.size() << endl; // i=1 means after the 1st iteration
-		for (int j=0; j<list.size(); j++) {
-			cout << list[j] << " ";
-		}
-		cout << endl;
 		// push_back the ball of 2**a[i] to the list (rightmost)
 		// deque.push_front(2**a[i])
 		list.push_front(power2(a[i]));
 
-		if (list.size() > 1) {
-			if (list[0] != list[1]) {
-				continue; // continue (go to next loop)
-			} else {
+		while (list.size() > 1 && list[0] == list[1]) {
 				// new_element
 				int new_element = list.front();
 				list.pop_front();
 				new_element += list.front();
 				list.pop_front();
 				list.push_front(new_element);
-			}
-		} else {
-			continue; // continue (go to next loop)
 		}
 	}
 	cout << list.size() << endl;
