@@ -3,6 +3,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// <IMP> No need to use pow() function because 2*n + 2*n = 2*(n+1) => Only need to store the exponent, but not the value itself
+// (Also reduce the time complexity)
+// <IMP> I did not come up with this idea. (Or though come up, I did not adopted it)
 int main() {
 	int n,l=0;
 	int a[200000]; // max of n is 200000 (ther are atmost n balls in the list)
