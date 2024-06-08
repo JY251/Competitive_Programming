@@ -2,14 +2,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int power2(int n) {
-	int res = 1;
-	for (int i=0; i<n; i++) {
-		res *= 2;
-	}
-	return res;
-}
-
 int main() {
 	int n;
 	cin >> n;
@@ -28,7 +20,7 @@ int main() {
 	for (int i=0; i<n; i++) {
 		// push_back the ball of 2**a[i] to the list (rightmost)
 		// deque.push_front(2**a[i])
-		list.push_front(power2(a[i]));
+		list.push_front(pow(2, a[i]));
 
 		while (list.size() > 1 && list[0] == list[1]) {
 				// new_element
