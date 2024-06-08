@@ -10,7 +10,8 @@ int main() {
 	int upper = 0;
 	string all_lower = s, all_upper = s;
 	for (int i=0; i<(int)s.size(); i++) {
-		if ('a' < s[i] && s[i] <= 'z') {
+		// Not to forget the `=` sign in the following line:
+		if ('a' <= s[i] && s[i] <= 'z') {
 			all_upper[i] = all_upper[i] - 'a' + 'A';
 			lower += 1;
 		} else {
