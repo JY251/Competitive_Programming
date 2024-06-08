@@ -10,7 +10,12 @@ This is a repository for code for competitive programming such as AtCoder and Le
 ### AtCoder
 - Directory named `ABCxxx` is for AtCoder Beginner Contest xxx.
 - Directory named `ARCxxx` is for AtCoder Regular Contest xxx.
-- Directory named `ADTExxx` is for AtCoder Daily Training Easy (xxx represents the data and start time of the contest).
+- Directory named `ADT_yyyy_mmdd_time_E/M/H` is for AtCoder Daily Training Easy (xxx represents the data and start time of the contest).
+	- `yyyy` is the year of the contest (e.g. 2024).
+	- `mmdd` is the month and day of the contest (e.g. 0513).
+	- `time` is the start time of the contest (e.g. 2100). (JST)
+	- E/M/H is the difficulty of the contest (Easy/Medium/Hard).
+
 
 ### LeetCode
 - Directory named `WCxxx` is for LeetCode Weekly Contest xxx.
