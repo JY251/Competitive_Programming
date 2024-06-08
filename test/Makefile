@@ -12,3 +12,5 @@ neg_rem:
 	g++ -Wall -o a.out neg_remainder.cpp
 unordered:
 	g++ -Wall -o a.out unordered_map.cpp
+init_line:
+	g++ -Wall -o a.out init_one_line.cpp
