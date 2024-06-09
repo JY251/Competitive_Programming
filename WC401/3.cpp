@@ -8,13 +8,15 @@ public:
 				int current_pos = 0;
 				int dir=1;
         for (int i=0; i<k; i++) {
-					if (current_pos == n-1 || ((current_pos == 0) && dir == 1)) {
+					// current_pos in n-1 and dir = 1 -> -1
+					if (current_pos == n-1 && dir == 1) {
 						current_pos --;
 						dir = -1;
-					} 
-					else if (current_pos == 0 || ((current_pos == n-1) && dir == -1)) {
+					} else if (current_pos == 0 && dir == -1) {
 						current_pos ++;
 						dir = 1;
+					} else if (current_pos != 0) {
+						current_pos += dir;
 					}
 				}
 				return current_pos;
