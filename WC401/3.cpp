@@ -15,7 +15,9 @@ public:
 					} else if (current_pos == 0 && dir == -1) {
 						current_pos ++;
 						dir = 1;
-					} else if (current_pos != 0) {
+					// The following is not OK since it misses the initial case: current_pos = 0 and dir = 1
+					// } else if (current_pos != 0) {
+					} else {
 						current_pos += dir;
 					}
 				}
