@@ -22,10 +22,14 @@ int main() {
 		} else {
 			// 2nd: first fin <= second com: return second com + A
 			if (previous_fin <= T[i]) {
+				// printf("previous_fin: %d\n", previous_fin);
 				previous_fin = T[i] + a;
+				// printf("a: %d\n", a);
+				// printf("T[i]: %d\n", T[i]);
+				// printf("previous_fin: %d\n", previous_fin);
 			}
 			// 2nd: first fin > second com: return first fin + A
-			if (previous_fin > T[i])
+			else if (previous_fin > T[i])
 				previous_fin = previous_fin + a;
 		}
 
