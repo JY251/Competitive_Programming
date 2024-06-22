@@ -1,4 +1,4 @@
-// Sub2: WA (AC: 3/3, 4/13)
+// Sub3: AC
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -7,7 +7,7 @@ int main(){
 	cin >> n;
 
 	vector<int> a(2*n);
-	for (int i=0; i<n; i++) {
+	for (int i=0; i<2*n; i++) {
 		cin >> a[i];
 	}
 
