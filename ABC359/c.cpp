@@ -1,4 +1,4 @@
-// Sub1:WA (AC: 0/3, 0/49)
+// Sub2:WA (AC: 1/3, 2/49)
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -10,7 +10,11 @@ int main() {
 
 	cin >> s_x >> s_y >> t_x >> t_y;
 
-	unsigned long long ans = (s_x - s_y / 2) + (t_x - t_y) - 1;
+	unsigned long long delta_x = s_x > t_x ? s_x - t_x : t_x - s_x;
+	unsigned long long delta_y = s_y > t_y ? s_y - t_y : t_y - s_y;
+
+	// NOTE: abs is not supported for unsigned long long
+	unsigned long long ans = (delta_x / 2) + delta_y - 1;
 	cout << ans << endl;
 	return 0;
 }
